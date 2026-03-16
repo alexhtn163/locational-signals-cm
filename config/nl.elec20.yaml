@@ -1,0 +1,17 @@
+run:
+  name: "nl20"
+
+countries: ["NL"]
+
+snapshots:
+  start: "2013-01-01"
+  end:   "2014-01-01"
+  inclusive: "left"
+  freq: "h"
+
+enable:
+  hydro: false
+
+scenario:
+  clusters: [20]
+  opts: [""]
