@@ -1,0 +1,4 @@
+generator,bus,technology,capacity_offer,derating_factor_alpha,max_capacity_eligible
+NL0 0 coal,NL0 0,coal,18.532997323249884,1.0,181.46700267675013
+NL0 1 coal,NL0 1,coal,80.70019323426874,1.0,119.29980676573126
+NL0 10 coal,NL0 10,coal,75.76680944248177,1.0,124.23319055751823

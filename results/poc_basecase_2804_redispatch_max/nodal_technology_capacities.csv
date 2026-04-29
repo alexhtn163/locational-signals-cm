@@ -1,0 +1,4 @@
+bus,technology,kept_capacity,retired_capacity
+NL0 0,coal,45.0,155.0
+NL0 1,coal,0.0,200.0
+NL0 10,coal,130.0,70.0

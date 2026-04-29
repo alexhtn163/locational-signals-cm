@@ -1,0 +1,4 @@
+generator,bus,technology,initial_capacity,kept_capacity,retired_capacity
+NL0 0 coal,NL0 0,coal,200,45.0,155.0
+NL0 1 coal,NL0 1,coal,200,0.0,200.0
+NL0 10 coal,NL0 10,coal,200,130.0,70.0
