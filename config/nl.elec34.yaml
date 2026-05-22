@@ -1,0 +1,42 @@
+run:
+  name: "nl34"
+
+countries: ["NL"]
+
+snapshots:
+  start: "2023-01-01"
+  end:   "2024-01-01"
+  inclusive: "left"
+  freq: "h"
+
+
+
+scenario:
+  clusters: [34]
+  opts: [""]
+
+atlite:
+  default_cutout: europe-2023-sarah3-era5
+
+electricity:
+  extendable_carriers:
+    Generator: []
+    StorageUnit: []
+    Store: []
+    Link: []
+
+  renewable_carriers:
+    - solar
+    - onwind
+    - offwind-ac
+    - offwind-dc
+
+  conventional_carriers:
+    - OCGT
+    - CCGT
+    - nuclear
+    - oil
+    - coal
+    - lignite
+    - waste
+    - biomass

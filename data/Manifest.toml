@@ -369,6 +369,18 @@ git-tree-sha1 = "53bb909d1151e57e2484c3d1b53e19552b887fb2"
 uuid = "42e2da0e-8278-4e71-bc24-59509adca0fe"
 version = "1.0.2"
 
+[[Gurobi]]
+deps = ["Gurobi_jll", "Libdl", "MathOptInterface", "PrecompileTools"]
+git-tree-sha1 = "0c937687e3f5812ecdba2b9986418cac7a873874"
+uuid = "2e9cd046-0924-5485-92f1-d5272153d98b"
+version = "1.9.2"
+
+[[Gurobi_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "54216ec971a0ec855cab4d0d96541c37fbf46c97"
+uuid = "c018c7e6-a5b0-4aea-8f80-9c1ef9991411"
+version = "13.0.2"
+
 [[HTTP]]
 deps = ["Base64", "Dates", "IniFile", "Logging", "MbedTLS", "NetworkOptions", "Sockets", "URIs"]
 git-tree-sha1 = "0fa77022fe4b511826b39c894c90daf5fce3334a"
@@ -968,7 +980,6 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 [[TimeSeries]]
 deps = ["Dates", "DelimitedFiles", "DocStringExtensions", "RecipesBase", "Reexport", "Statistics", "Tables"]
 git-tree-sha1 = "8a7dbbd5ca21a6b3f235c55933df0d01709e6353"
-pinned = true
 uuid = "9e3dc215-6440-5c97-bce1-76c03772f85e"
 version = "0.20.2"
 
