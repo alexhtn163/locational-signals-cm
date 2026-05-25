@@ -1,0 +1,4 @@
+name,v_nom,type,x,y,carrier,unit,location,v_mag_pu_set,v_mag_pu_min,v_mag_pu_max,control,generator,sub_network,country,substation_lv,substation_off
+NL0 0,380.0,,4.58048873,51.975314495,AC,,,1.0,0.0,inf,Slack,,0,NL,1.0,1.0
+NL0 1,380.0,,6.925059573333333,53.28827718,AC,,,1.0,0.0,inf,PQ,,0,NL,1.0,1.0
+NL0 10,380.0,,6.75917948,52.24885331,AC,,,1.0,0.0,inf,PQ,,0,NL,1.0,1.0

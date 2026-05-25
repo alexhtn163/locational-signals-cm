@@ -1,0 +1,4 @@
+name,bus_idx,zone
+NL0 0,0,1
+NL0 1,1,2
+NL0 10,2,3

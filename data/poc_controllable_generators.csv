@@ -1,0 +1,7 @@
+name,bus,p_nom,carrier,marginal_cost
+NL0 0 coal,NL0 0,200,coal,5.0
+NL0 1 coal,NL0 1,200,coal,5.0
+NL0 10 coal,NL0 10,200,coal,5.0
+
+
+
