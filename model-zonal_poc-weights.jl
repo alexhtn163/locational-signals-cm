@@ -65,16 +65,24 @@ end
 # ============================================================================
 # Weight vectors (generated ONCE, reused across all CM designs)
 # ============================================================================
-Random.seed!(42)
-K_random = 5
- 
-weights_unit   = [Dict(i => (i == k ? 1.0 : 0.0) for i in I) for k in I]
-weights_neg    = [Dict(i => (i == k ? -1.0 : 0.0) for i in I) for k in I]
-weights_random = [Dict(i => 2*rand()-1 for i in I) for _ in 1:K_random]
-all_weights    = vcat(weights_unit, weights_neg, weights_random)
- 
-println("Total weight vectors: ", length(all_weights))
- 
+# For each line, weight generators by their node's PTDF contribution
+weights_ptdf = []
+for l in L
+    # Push capacity toward high-PTDF nodes (promote congestion on line l)
+    w_pos = Dict(i => PTDF[l, gen_bus_idx[i]] for i in I)
+    # Push capacity away (relieve congestion on line l)
+    w_neg = Dict(i => -PTDF[l, gen_bus_idx[i]] for i in I)
+    push!(weights_ptdf, w_pos)
+    push!(weights_ptdf, w_neg)
+end
+
+weights_zone = []
+for z in Z
+    w = Dict(i => (gen_to_zone[i] == z ? 1.0 : -1.0) for i in I)
+    push!(weights_zone, w)
+end
+
+all_weights = vcat(weights_ptdf, weights_zone)
 # ============================================================================
 # Big-M bounds
 # ============================================================================
@@ -576,7 +584,7 @@ end
 # Save results
 # ============================================================================
  
-run_name = "poc_zonal_cm_sigma$(Int(sigma*100))"
+run_name = "poc_ptdf-weights_zonal_cm_sigma$(Int(sigma*100))"
 run_dir  = joinpath("results", run_name)
 mkpath(run_dir)
  
