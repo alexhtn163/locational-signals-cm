@@ -29,36 +29,67 @@ const SCENARIOS = Dict(
         renewable_cf        = "nl20_renewable_cf_per_generator.csv",
     ),
 
-    "nl34" => (
+    "nl34_z3" => (
         invest_generators   = "nl34_investable_generators.csv",
         legacy_generators   = "nl34_legacy_generators.csv",
         renewable_gens      = "nl34_renewable_generators.csv",
         total_load          = "nl34_total_load_timeseries.csv",
         load_per_bus        = "nl34_load_timeseries_per_bus.csv",
         ptdf                = "nl34_ptdf_matrix.csv",
-        bus_order           = "nl34_bus_order.csv",
+        bus_order           = "nl34_bus_order_z3.csv",
         line_order          = "nl34_line_order.csv",
         fixed_om            = "fixed_om_costs.csv",
         renewable_cf        = "nl34_renewable_cf_per_generator.csv",
         rep_profiles        = "repdays_8-unequal_weights/resulting_profiles.csv",        
         rep_decisions       = "repdays_8-unequal_weights/decision_variables_short.csv",  
-        mec_profiles        = "nl34_interzonal_mec.csv",
+        mec_profiles        = "nl34_interzonal_mec_z3.csv",
     ),
 
-    "poc" => (
+
+    "nl34_z1" => (
+        invest_generators   = "nl34_investable_generators.csv",
+        legacy_generators   = "nl34_legacy_generators.csv",
+        renewable_gens      = "nl34_renewable_generators.csv",
+        total_load          = "nl34_total_load_timeseries.csv",
+        load_per_bus        = "nl34_load_timeseries_per_bus.csv",
+        ptdf                = "nl34_ptdf_matrix.csv",
+        bus_order           = "nl34_bus_order_z1.csv",
+        line_order          = "nl34_line_order.csv",
+        fixed_om            = "fixed_om_costs.csv",
+        renewable_cf        = "nl34_renewable_cf_per_generator.csv",
+        rep_profiles        = "repdays_8-unequal_weights/resulting_profiles.csv",        
+        rep_decisions       = "repdays_8-unequal_weights/decision_variables_short.csv",  
+    ),
+
+    "poc_z1" => (
         invest_generators   = "poc_controllable_generators.csv",
         legacy_generators   = "poc_legacy.csv",
         renewable_gens      = "poc_renewable_generators.csv",
         total_load          = "poc_total_load_timeseries.csv",
         load_per_bus        = "poc_load_timeseries_per_bus.csv",
         ptdf                = "poc_ptdf_matrix.csv",
-        bus_order           = "poc_bus_order.csv",
+        bus_order           = "poc_bus_order_z1.csv",
         line_order          = "poc_line_order.csv",
         fixed_om            = "fixed_om_costs.csv",
         renewable_cf        = "nl20_renewable_cf_per_generator.csv",
         rep_profiles        = "poc_time/resulting_profiles.csv",        
         rep_decisions       = "poc_time/decision_variables_short.csv",  
-        mec_profiles        = "poc_interzonal_mec.csv",
+    ),
+
+    "poc_z3" => (
+        invest_generators   = "poc_controllable_generators.csv",
+        legacy_generators   = "poc_legacy.csv",
+        renewable_gens      = "poc_renewable_generators.csv",
+        total_load          = "poc_total_load_timeseries.csv",
+        load_per_bus        = "poc_load_timeseries_per_bus.csv",
+        ptdf                = "poc_ptdf_matrix.csv",
+        bus_order           = "poc_bus_order_z3.csv",
+        line_order          = "poc_line_order.csv",
+        fixed_om            = "fixed_om_costs.csv",
+        renewable_cf        = "nl20_renewable_cf_per_generator.csv",
+        rep_profiles        = "poc_time/resulting_profiles.csv",        
+        rep_decisions       = "poc_time/decision_variables_short.csv", 
+        mec_profiles        = "poc_interzonal_mec_z3.csv",
     ),
 )
 
@@ -102,7 +133,9 @@ function build_load_shares(data)
     dem_df  = data.dem_df
     dem_tot = data.dem_tot_df
     bus_cols = string.(names(dem_df)[2:end])
-    return Dict(col => dem_df[1, col] / dem_tot.load[1] for col in bus_cols)
+    raw = Dict(col => dem_df[1, col] / dem_tot.load[1] for col in bus_cols)
+    total = sum(values(raw))
+    return Dict(k => v / total for (k, v) in raw)
 end
 
 function build_rep_days(data, bus_to_idx)
