@@ -6,12 +6,12 @@ using DataFrames
 using Statistics
 using CSV
  
-include("helper_functions-zonal-fc.jl")
+include("helper_functions.jl")
  
 # ============================================================================
 # Setup
 # ============================================================================
-scenario = "nl34_z1"
+scenario = "poc_z3"
 data = load_data(scenario)
 net  = build_network(data)
 rep  = build_rep_days(data, net.bus_to_idx)
@@ -29,12 +29,14 @@ snapshots = Vector{String}(data.dem_df.snapshot)
 IJ          = vcat(I, J)
 gen_bus_idx = Dict(g => bus_to_idx[gens[g]] for g in IJ)
  
-VOLL  = 300
-PEN   = 300
+VOLL  = 4000
+#PEN   = 69000
+PEN = 300 # poc
 J_res = [j for j in J if tech[j] in ["solar", "onwind", "offwind-ac"]]
+K_multi = 0.99
  
-#sigmas = [0.0, 0.25, 0.5, 0.75, 1.0]
-sigmas = [0.0]
+sigmas = [0.0, 0.25, 0.5, 0.75, 1.0]
+#sigmas = [1.0]
  
 # ============================================================================
 # Sigma loop
@@ -89,39 +91,41 @@ for sigma in sigmas
     all_weights = vcat(weights_ptdf)
  
     # ── K constants ──────────────────────────────────────────────────────
-    K_q   = maximum(cap[g] for g in IJ; init = 0.0)
-    K_ls  = maximum(D_max[t] for t in T; init = 0.0)
-    K_c   = maximum(cap[i] for i in I; init = 0.0)
-    K_cm  = maximum(cap[g] for g in IJ; init = 0.0)
-    K_dem = maximum((d_c_z[z] + mec_bound_z[z] for z in Z); init = 0.0)
-    K_sys = sum(d_c_z[z] + mec_bound_z[z] for z in Z; init = 0.0)
+    K_q   = maximum(cap[g] for g in IJ; init = 0.0) * K_multi
+    K_ls  = maximum(D_max[t] for t in T; init = 0.0) * K_multi
+    K_c   = maximum(cap[i] for i in I; init = 0.0) * K_multi
+    K_cm  = maximum(cap[g] for g in IJ; init = 0.0) * K_multi
+    K_dem = maximum((d_c_z[z] + mec_bound_z[z] for z in Z); init = 0.0) * K_multi
+    K_sys = sum(d_c_z[z] + mec_bound_z[z] for z in Z; init = 0.0) * K_multi
  
-    K_slack_q_I      = maximum(cap[i] for i in I; init = 0.0)
-    K_slack_q_J      = maximum(cap[j] * a[(t, j)] for t in T for j in J; init = 0.0)
-    K_slack_cap      = maximum(cap[i] for i in I; init = 0.0)
-    K_slack_cm_bud_I = maximum(cap[i] for i in I; init = 0.0)
-    K_slack_cm_bud_J = maximum(alpha[j] * cap[j] for j in J; init = 0.0)
+    K_slack_q_I      = maximum(cap[i] for i in I; init = 0.0) * K_multi
+    K_slack_q_J      = maximum(cap[j] * a[(t, j)] for t in T for j in J; init = 0.0) * K_multi
+    K_slack_cap      = maximum(cap[i] for i in I; init = 0.0) * K_multi
+    K_slack_cm_bud_I = maximum(cap[i] for i in I; init = 0.0) * K_multi
+    K_slack_cm_bud_J = maximum(alpha[j] * cap[j] for j in J; init = 0.0) * K_multi
  
+    total_hours = sum(W_t[t] for t in T)
+    Wmax        = maximum(W_t[t] for t in T)   # W_t fix: mu_g_up is now W_t-scaled
     lambda_c_ub = maximum(fc[i] for i in I)
-    cap_up_ub   = VOLL * length(T) + lambda_c_ub
+    cap_up_ub   = VOLL * total_hours + lambda_c_ub
     P_cap_cm    = 2.0 * lambda_c_ub
  
-    K_mu_g_I      = VOLL
-    K_mu_g_J      = VOLL
-    K_mu_cm_bud_I = P_cap_cm
-    K_mu_cm_bud_J = P_cap_cm
-    K_mu_cap      = cap_up_ub
-    K_nu_c        = P_cap_cm
-    K_phi         = P_cap_cm
-    K_rho         = P_cap_cm
+    K_mu_g_I      = VOLL * Wmax * K_multi
+    K_mu_g_J      = VOLL * Wmax * K_multi
+    K_mu_cm_bud_I = P_cap_cm * K_multi
+    K_mu_cm_bud_J = P_cap_cm * K_multi
+    K_mu_cap      = cap_up_ub * K_multi
+    K_nu_c        = P_cap_cm * K_multi
+    K_phi         = P_cap_cm * K_multi
+    K_rho         = P_cap_cm * K_multi
  
-    K_stat_q_I   = maximum(vc[i] for i in I; init = 0.0) + VOLL
-    K_stat_q_J   = maximum(vc[j] for j in J; init = 0.0) + VOLL
-    K_stat_c     = maximum(fc[g] for g in IJ; init = 0.0) + cap_up_ub + 2 * lambda_c_ub
-    K_stat_cm    = P_cap_cm
-    K_stat_dem_c = P_cap_cm
-    K_stat_ls    = VOLL
- 
+    K_stat_q_I   = Wmax * (maximum(vc[i] for i in I; init = 0.0) + VOLL) * K_multi
+    K_stat_q_J   = Wmax * (maximum(vc[j] for j in J; init = 0.0) + VOLL) * K_multi
+    K_stat_c     = (maximum(fc[g] for g in IJ; init = 0.0) + cap_up_ub + 2 * lambda_c_ub) * K_multi
+    K_stat_cm    = P_cap_cm * K_multi
+    K_stat_dem_c = P_cap_cm * K_multi
+    K_stat_ls    = VOLL * Wmax * K_multi
+
     println("K_q=$K_q, K_ls=$K_ls, K_c=$K_c, K_cm=$K_cm, K_dem=$K_dem")
     println("K_stat_cm=$K_stat_cm, P_cap_cm=$P_cap_cm")
  
@@ -133,7 +137,7 @@ for sigma in sigmas
         lambda_e_avg = Float64[], ls_total    = Float64[],
         rd_status    = String[],  rd_volume   = Float64[], rd_cost      = Float64[],
         curtailment  = Float64[], rd_up_vol   = Float64[], rd_down_vol  = Float64[],
-        rd_cost_econ = Float64[], curt_cost   = Float64[]
+        rd_cost_econ = Float64[], curt_cost   = Float64[] 
     )
     for z in Z
         results[!, "lambda_c_z$z"]   = Float64[]
@@ -153,13 +157,15 @@ for sigma in sigmas
     all_invest    = DataFrame(run_id=Int[], generator=String[], bus=String[], tech=String[],
                               zone=Int[], cap_max=Float64[], c=Float64[], vc=Float64[],
                               fc=Float64[], mu_cap_up=Float64[], mu_cm_bud=Float64[],
-                              lambda_c_sys=Float64[], energy_rent=Float64[], cm_rent=Float64[],
+                              energy_rent=Float64[], cm_rent=Float64[],
                               total_rent=Float64[], fixed_cost=Float64[], profit=Float64[])
     all_legacy    = DataFrame(run_id=Int[], generator=String[], bus=String[], zone=Int[],
                               cap=Float64[], vc=Float64[], mu_cm_bud=Float64[],
                               energy_rent=Float64[], cm_rent=Float64[], total_gen=Float64[])
-    all_flows     = DataFrame(run_id=Int[], t=Int[], line=String[], flow=Float64[],
-                              Fmax=Float64[], utilization=Float64[], congested=Bool[])
+    all_flows     = DataFrame(run_id=Int[], t=Int[], line=String[], market_flow=Float64[],
+                              final_flow=Float64[], Fmax=Float64[], market_utilization=Float64[],
+                              final_utilization=Float64[], market_overload=Float64[],
+                              market_violated=Bool[], final_feasible=Bool[])
     all_rd_detail = DataFrame(run_id=Int[], t=Int[], generator=String[], bus=String[],
                               q_market=Float64[], r_up=Float64[], r_down=Float64[],
                               q_final=Float64[], q_max=Float64[], up_cost=Float64[],
@@ -172,7 +178,7 @@ for sigma in sigmas
     all_cm_dem    = DataFrame(run_id=Int[], zone=Int[], d_c_z=Float64[], net_import=Float64[],
                               req_z=Float64[], c_dem=Float64[], lambda_c_z=Float64[],
                               nu_c=Float64[], rho=Float64[])
-    all_cm_diag   = DataFrame(run_id=Int[], lambda_c_sys=Float64[], sys_avail=Float64[],
+    all_cm_diag   = DataFrame(run_id=Int[], sys_avail=Float64[],
                               sys_req=Float64[], sys_slack=Float64[], zone=Int[],
                               req_z=Float64[], net_import=Float64[], zone_avail=Float64[],
                               zone_offers=Float64[], zone_slack=Float64[],
@@ -180,6 +186,8 @@ for sigma in sigmas
     all_transfer  = DataFrame(run_id=Int[], zone_a=Int[], zone_b=Int[], bound=Float64[],
                               f_ab=Float64[], phi_lo=Float64[], phi_hi=Float64[],
                               at_bound=String[])
+    all_values = DataFrame(run_id=Int[], sigma=Float64[], model=String[],
+                              variable=String[], value=Float64[])
  
     println("\n" * "=" ^ 60)
     println("Starting $(length(all_weights)) runs (sigma=$sigma)...")
@@ -198,7 +206,7 @@ for sigma in sigmas
  
         # ── Build a fresh model for every run ───────────────────────────────
         milp = Model(Gurobi.Optimizer)
-        set_optimizer_attribute(milp, "TimeLimit",      180)
+        set_optimizer_attribute(milp, "TimeLimit",      220)
         set_optimizer_attribute(milp, "Presolve",        2)
         set_optimizer_attribute(milp, "FeasibilityTol", 1e-3)
         set_optimizer_attribute(milp, "MIPGap",         0.01)
@@ -246,7 +254,6 @@ for sigma in sigmas
         @constraint(milp, cm_clearing[z in Z],
             sum(c_cm_I[i] for i in I_in_z[z]; init = 0.0) +
             sum(c_cm_J[j] for j in J_in_z[z]; init = 0.0) - c_dem[z] == 0)
-        # System-wide resource adequacy floor on procured capacity.
         @constraint(milp, cm_system,
             sum(c_dem[z] for z in Z) >= d_c)
  
@@ -266,9 +273,9 @@ for sigma in sigmas
  
         # ── Stationarity conditions ──────────────────────────────────────────
         @constraint(milp, [t in T, i in I],
-            -(lambda_e[t] - vc[i]) + mu_g_up_I[t, i] >= 0)
+            -W_t[t] * (lambda_e[t] - vc[i]) + mu_g_up_I[t, i] >= 0)
         @constraint(milp, [t in T, j in J],
-            -(lambda_e[t] - vc[j]) + mu_g_up_J[t, j] >= 0)
+            -W_t[t] * (lambda_e[t] - vc[j]) + mu_g_up_J[t, j] >= 0)
         @constraint(milp, stat_c[i in I],
             fc[i] - sum(mu_g_up_I[t, i] for t in T) +
             mu_cap_up[i] - mu_cm_bud_I[i] * alpha[i] >= 0)
@@ -276,11 +283,11 @@ for sigma in sigmas
             -lambda_c[gen_to_zone[i]] + mu_cm_bud_I[i] >= 0)
         @constraint(milp, stat_cm_J[j in J],
             -lambda_c[gen_to_zone[j]] + mu_cm_bud_J[j] >= 0)
-        @constraint(milp, stat_dem_c[z in Z],
-            lambda_c[z] - nu_c[z] - lambda_c_sys >= 0)
         @constraint(milp, stat_f[p in pair_keys],
             -(nu_c[p[1]] - rho[p[1]]) + (nu_c[p[2]] - rho[p[2]]) +
             phi_hi[p] - phi_lo[p] == 0)
+        @constraint(milp, stat_dem_c[z in Z],
+            lambda_c[z] - nu_c[z] - lambda_c_sys >= 0)
  
         # ── Binary variables (Fortuny-Amat linearisation) ────────────────────
         @variable(milp, r_q_I[t in T, i in I],   Bin)
@@ -298,14 +305,14 @@ for sigma in sigmas
         @variable(milp, r_flo[p in pair_keys],    Bin)
         @variable(milp, r_fhi[p in pair_keys],    Bin)
         @variable(milp, r_rho[z in Z],            Bin)
-        @variable(milp, r_sys,                    Bin)
         @variable(milp, r_ls[t in T],             Bin)
+        @variable(milp, r_sys,                    Bin)
  
         # 0 <= q[t,i] ⊥ stat_q_I >= 0
         @constraint(milp, [t in T, i in I],
             q[t, i] <= K_q * (1 - r_q_I[t, i]))
         @constraint(milp, [t in T, i in I],
-            -(lambda_e[t] - vc[i]) + mu_g_up_I[t, i] <= K_stat_q_I * r_q_I[t, i])
+            -W_t[t] * (lambda_e[t] - vc[i]) + mu_g_up_I[t, i] <= K_stat_q_I * r_q_I[t, i])
  
         # 0 <= (q_max_I - q) ⊥ mu_g_up_I >= 0
         @constraint(milp, [t in T, i in I],
@@ -338,7 +345,7 @@ for sigma in sigmas
         @constraint(milp, [t in T, j in J],
             q[t, j] <= K_q * (1 - r_q_J[t, j]))
         @constraint(milp, [t in T, j in J],
-            -(lambda_e[t] - vc[j]) + mu_g_up_J[t, j] <= K_stat_q_J * r_q_J[t, j])
+            -W_t[t] * (lambda_e[t] - vc[j]) + mu_g_up_J[t, j] <= K_stat_q_J * r_q_J[t, j])
  
         # 0 <= (q_max_J - q) ⊥ mu_g_up_J >= 0
         @constraint(milp, [t in T, j in J],
@@ -360,6 +367,11 @@ for sigma in sigmas
         @constraint(milp, [z in Z], c_dem[z] <= K_dem * (1 - r_dem[z]))
         @constraint(milp, [z in Z],
             lambda_c[z] - nu_c[z] - lambda_c_sys <= K_stat_dem_c * r_dem[z])
+
+        # 0 <= (system slack) ⊥ lambda_c_sys >= 0
+        @constraint(milp,
+            sum(c_dem[z] for z in Z) - d_c <= K_sys * (1 - r_sys))
+        @constraint(milp, lambda_c_sys <= lambda_c_ub * r_sys)
  
         # 0 <= (c_dem - req_z) ⊥ nu_c >= 0
         @constraint(milp, [z in Z],
@@ -380,15 +392,11 @@ for sigma in sigmas
         @constraint(milp, [z in Z],
             d_c_z[z] - net_import[z] <= K_dem * (1 - r_rho[z]))
         @constraint(milp, [z in Z], rho[z] <= K_rho * r_rho[z])
- 
-        # 0 <= (system slack) ⊥ lambda_c_sys >= 0
-        @constraint(milp,
-            sum(c_dem[z] for z in Z) - d_c <= K_sys * (1 - r_sys))
-        @constraint(milp, lambda_c_sys <= lambda_c_ub * r_sys)
+
  
         # 0 <= ls ⊥ (VOLL - lambda_e) >= 0
         @constraint(milp, [t in T], ls[t] <= K_ls * (1 - r_ls[t]))
-        @constraint(milp, [t in T], VOLL - lambda_e[t] <= K_stat_ls * r_ls[t])
+        @constraint(milp, [t in T], W_t[t] * (VOLL - lambda_e[t]) <= K_stat_ls * r_ls[t])
  
         # ── Objective and solve ──────────────────────────────────────────────
         @objective(milp, Max, sum(w[i] * c[i] for i in I))
@@ -406,9 +414,16 @@ for sigma in sigmas
             continue
         end
  
+
+        for v in all_variables(milp)
+            is_binary(v) && continue
+            push!(all_values, (run_id = k, sigma = sigma, model = "milp",
+                 variable = name(v), value = value(v)))
+        end
         c_vals     = Dict(i => value(c[i])          for i in I)
         q_vals     = Dict((t, g) => value(q[t, g])  for t in T, g in IJ)
         ls_vals    = Dict(t => value(ls[t])          for t in T)
+        lc_sys_vals = Dict(t => value(lambda_c_sys) for t in T)
         le_vals    = Dict(t => value(lambda_e[t])    for t in T)
         lc_vals    = Dict(z => value(lambda_c[z])    for z in Z)
         cdem_vals  = Dict(z => value(c_dem[z])       for z in Z)
@@ -419,7 +434,6 @@ for sigma in sigmas
         ft_vals    = Dict(p => value(f_trans[p])     for p in pair_keys)
         plo_vals   = Dict(p => value(phi_lo[p])      for p in pair_keys)
         phi_vals   = Dict(p => value(phi_hi[p])      for p in pair_keys)
-        lc_sys_val = value(lambda_c_sys)
  
         total_cap = sum(values(c_vals))
         mc = sum(W_t[t] * vc[g] * q_vals[(t, g)] for t in T for g in IJ) +
@@ -464,7 +478,6 @@ for sigma in sigmas
                 vc = vc[i], fc = fc[i],
                 mu_cap_up = value(mu_cap_up[i]),
                 mu_cm_bud = value(mu_cm_bud_I[i]),
-                lambda_c_sys = lc_sys_val,
                 energy_rent = e_rent, cm_rent = cm_rent,
                 total_rent = e_rent + cm_rent,
                 fixed_cost = fc_tot,
@@ -503,10 +516,7 @@ for sigma in sigmas
                 mu_cm_bud = value(mu_cm_bud_J[j])))
         end
  
-        # adequacy diagnostics
-        # For the CM system floor, the relevant value is procured capacity,
-        # not total physical availability. Physical availability is still visible
-        # through the zone_avail diagnostics below.
+
         sys_avail = sum(cdem_vals[z] for z in Z)
         sys_slack = sys_avail - d_c
         for z in Z
@@ -515,7 +525,7 @@ for sigma in sigmas
             zone_offers = sum((value(c_cm_I[i]) for i in I_in_z[z]); init = 0.0) +
                           sum((value(c_cm_J[j]) for j in J_in_z[z]); init = 0.0)
             push!(all_cm_diag, (
-                run_id = k, lambda_c_sys = lc_sys_val,
+                run_id = k,
                 sys_avail = sys_avail, sys_req = d_c, sys_slack = sys_slack,
                 zone = z, req_z = reqz_vals[z], net_import = ni_vals[z],
                 zone_avail = zone_avail, zone_offers = zone_offers,
@@ -548,6 +558,22 @@ for sigma in sigmas
                         for t in T for g in IJ)
         d_val  = Dict((t, n) => d_nodal[(t, BUS[n])] * D_max[t] for t in T for n in N)
         ls_nod = Dict((t, n) => d_nodal[(t, BUS[n])] * ls_vals[t] for t in T for n in N)
+
+        market_inj = Dict((t, n) => sum((q_vals[(t, g)] for g in IJ if gen_bus_idx[g] == n); init = 0.0)- (d_val[(t, n)] - ls_nod[(t, n)]) for t in T, n in N)
+
+        for t in T
+            injection_balance = sum(market_inj[(t, n)] for n in N)
+
+            if abs(injection_balance) > 1e-4
+                @warn "Pre-redispatch nodal injections do not balance" timestep=t balance=injection_balance
+            end
+        end
+
+        market_flow = Dict(
+            (t, l) =>
+                sum(PTDF[l, n] * market_inj[(t, n)] for n in N)
+            for t in T, l in L
+        )
  
         rd = Model(Gurobi.Optimizer)
         set_optimizer_attribute(rd, "OutputFlag",      0)
@@ -579,7 +605,7 @@ for sigma in sigmas
             sum(r_up[t, g] for g in IJ) - sum(r_down[t, g] for g in IJ) +
             sum(curt[t, n] for n in N) == 0)
  
-        x = 150
+        x = 20
         @objective(rd, Min,
             sum(W_t[t] * (vc[g] + x) * r_up[t, g] +
                 W_t[t] * (-vc[g] + x) * r_down[t, g]
@@ -596,18 +622,36 @@ for sigma in sigmas
  
             rd_cost_econ = sum(W_t[t] * vc[g] * value(r_up[t, g])   for t in T for g in IJ) -
                            sum(W_t[t] * vc[g] * value(r_down[t, g]) for t in T for g in IJ)
-            curt_cost    = VOLL * rd_curt
+            curt_cost    = PEN * rd_curt
             rd_cost      = rd_cost_econ + curt_cost
             rd_stat      = "OPTIMAL"
+            for v in all_variables(rd)
+                push!(all_values, (run_id = k, sigma = sigma, model = "rd",
+                    variable = name(v), value = value(v)))
+                end
  
+            flow_tolerance = 1e-4
+
             for t in T, l in L
-                f = value(p_flow[t, l])
+                f_market = market_flow[(t, l)]
+                f_final  = value(p_flow[t, l])
+                limit    = Fmax[l]
+
                 push!(all_flows, (
-                    run_id = k, t = t, line = LINE[l],
-                    flow = f, Fmax = Fmax[l],
-                    utilization = abs(f) / Fmax[l],
-                    congested = abs(f) >= Fmax[l] * 0.99))
+                    run_id             = k,
+                    t                  = t,
+                    line               = LINE[l],
+                    market_flow        = f_market,
+                    final_flow         = f_final,
+                    Fmax               = limit,
+                    market_utilization = abs(f_market) / limit,
+                    final_utilization  = abs(f_final) / limit,
+                    market_overload    = max(0.0, abs(f_market) - limit),
+                    market_violated    = abs(f_market) > limit + flow_tolerance,
+                    final_feasible     = abs(f_final) <= limit + flow_tolerance
+                ))
             end
+
             for t in T, g in IJ
                 rup = value(r_up[t, g]); rdn = value(r_down[t, g]); qm = q_vals[(t, g)]
                 push!(all_rd_detail, (
@@ -617,6 +661,7 @@ for sigma in sigmas
                     up_cost = vc[g] * rup, down_refund = vc[g] * rdn,
                     lambda_e = le_vals[t], vc = vc[g]))
             end
+
             for t in T, n in N
                 cv = value(curt[t, n])
                 if cv > 0.01 || ls_vals[t] > 0.01
@@ -653,7 +698,6 @@ for sigma in sigmas
         println("cap=$(round(total_cap, digits=0)) ",
                 "λc: $lc_str ",
                 "f: $ft_str ",
-                "λc_sys=$(round(lc_sys_val, digits=1)) ",
                 "rd_up=$(round(rd_up_vol, digits=1)) ",
                 "rd_down=$(round(rd_down_vol, digits=1)) ",
                 "rd_cost=$(round(rd_cost_econ, digits=1)) ",
@@ -665,22 +709,23 @@ for sigma in sigmas
     # ========================================================================
     # Save results
     # ========================================================================
-    run_name = "MEC_$(scenario)_sigma$(Int(sigma * 100))"
+    run_name = "Kx09_$(scenario)_sigma$(Int(sigma * 100))"
     run_dir  = joinpath("results", run_name)
     mkpath(run_dir)
  
-    CSV.write(joinpath(run_dir, "summary_runs.csv"),      results)
-    CSV.write(joinpath(run_dir, "prices.csv"),            all_prices)
-    CSV.write(joinpath(run_dir, "dispatch.csv"),          all_dispatch)
-    CSV.write(joinpath(run_dir, "investment.csv"),        all_invest)
-    CSV.write(joinpath(run_dir, "legacy.csv"),            all_legacy)
-    CSV.write(joinpath(run_dir, "line_flows.csv"),        all_flows)
-    CSV.write(joinpath(run_dir, "redispatch_detail.csv"), all_rd_detail)
-    CSV.write(joinpath(run_dir, "curtailment.csv"),       all_curt)
-    CSV.write(joinpath(run_dir, "cm_detail.csv"),         all_cm)
-    CSV.write(joinpath(run_dir, "cm_diagnostics.csv"),    all_cm_diag)
-    CSV.write(joinpath(run_dir, "cm_demand.csv"),         all_cm_dem)
-    CSV.write(joinpath(run_dir, "transfers.csv"),         all_transfer)
+    CSV.write(joinpath(run_dir, "summary_runs_$(scenario)_sigma$(Int(sigma * 100)).csv"),      results)
+    CSV.write(joinpath(run_dir, "prices_$(scenario)_sigma$(Int(sigma * 100)).csv"),            all_prices)
+    CSV.write(joinpath(run_dir, "dispatch_$(scenario)_sigma$(Int(sigma * 100)).csv"),          all_dispatch)
+    CSV.write(joinpath(run_dir, "investment_$(scenario)_sigma$(Int(sigma * 100)).csv"),        all_invest)
+    CSV.write(joinpath(run_dir, "legacy_$(scenario)_sigma$(Int(sigma * 100)).csv"),            all_legacy)
+    CSV.write(joinpath(run_dir, "line_flows_$(scenario)_sigma$(Int(sigma * 100)).csv"),        all_flows)
+    CSV.write(joinpath(run_dir, "redispatch_detail_$(scenario)_sigma$(Int(sigma * 100)).csv"), all_rd_detail)
+    CSV.write(joinpath(run_dir, "curtailment_$(scenario)_sigma$(Int(sigma * 100)).csv"),       all_curt)
+    CSV.write(joinpath(run_dir, "cm_detail_$(scenario)_sigma$(Int(sigma * 100)).csv"),         all_cm)
+    CSV.write(joinpath(run_dir, "cm_diagnostics_$(scenario)_sigma$(Int(sigma * 100)).csv"),    all_cm_diag)
+    CSV.write(joinpath(run_dir, "cm_demand_$(scenario)_sigma$(Int(sigma * 100)).csv"),         all_cm_dem)
+    CSV.write(joinpath(run_dir, "transfers_$(scenario)_sigma$(Int(sigma * 100)).csv"),         all_transfer)
+    CSV.write(joinpath(run_dir, "all_values_$(scenario)_sigma$(Int(sigma * 100)).csv"),         all_values)
  
     cols = ["total_cap", "market_cost", "lambda_e_avg", "ls_total",
             "rd_volume", "rd_cost", "curtailment",
@@ -694,7 +739,7 @@ for sigma in sigmas
  
     valid   = results[results.mpec_status .== "OPTIMAL", cols]
     overall = describe(valid, :min, :max, :mean, :median, :std)
-    CSV.write(joinpath(run_dir, "summary_overall.csv"), overall)
+    CSV.write(joinpath(run_dir, "summary_overall_$(scenario)_sigma$(Int(sigma * 100)).csv"), overall)
  
     println("\nResults saved to: $run_dir")
  
