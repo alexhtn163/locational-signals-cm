@@ -2,33 +2,7 @@ using CSV
 using DataFrames
 
 const SCENARIOS = Dict(
-
-    "nl10" => (
-        invest_generators   = "nl10_investable_generators.csv",
-        legacy_generators   = "nl10_legacy_generators.csv",
-        renewable_gens      = "nl10_renewable_generators.csv",
-        total_load          = "nl10_total_load_timeseries.csv",
-        load_per_bus        = "nl10_load_timeseries_per_bus.csv",
-        ptdf                = "nl10_ptdf_matrix.csv",
-        bus_order           = "nl10_bus_order.csv",
-        line_order          = "nl10_line_order.csv",
-        fixed_om            = "fixed_om_costs.csv",
-        renewable_cf        = "nl10_renewable_cf_per_generator.csv",
-    ),
-
-    "nl20" => (
-        invest_generators   = "nl20_investable_generators.csv",
-        legacy_generators   = "nl20_legacy_generators.csv",
-        renewable_gens      = "nl20_renewable_generators.csv",
-        total_load          = "nl20_total_load_timeseries.csv",
-        load_per_bus        = "nl20_load_timeseries_per_bus.csv",
-        ptdf                = "ptdf_matrix.csv",
-        bus_order           = "bus_order.csv",
-        line_order          = "line_order.csv",
-        fixed_om            = "fixed_om_costs.csv",
-        renewable_cf        = "nl20_renewable_cf_per_generator.csv",
-    ),
-
+ 
     "nl34_z3" => (
         invest_generators   = "nl34_investable_generators.csv",
         legacy_generators   = "nl34_legacy_generators.csv",
@@ -45,10 +19,40 @@ const SCENARIOS = Dict(
         mec_profiles        = "nl34_interzonal_mec_z3.csv",
     ),
 
+    "cs2_nl34_z3" => (
+        invest_generators   = "nl34_investable_generators.csv",
+        legacy_generators   = "cs2_nl34_legacy_generators.csv",
+        renewable_gens      = "nl34_renewable_generators.csv",
+        total_load          = "nl34_total_load_timeseries.csv",
+        load_per_bus        = "nl34_load_timeseries_per_bus.csv",
+        ptdf                = "nl34_ptdf_matrix.csv",
+        bus_order           = "nl34_bus_order_z3.csv",
+        line_order          = "nl34_line_order.csv",
+        fixed_om            = "fixed_om_costs.csv",
+        renewable_cf        = "nl34_renewable_cf_per_generator.csv",
+        rep_profiles        = "repdays_8-unequal_weights/resulting_profiles.csv",        
+        rep_decisions       = "repdays_8-unequal_weights/decision_variables_short.csv",  
+        mec_profiles        = "nl34_interzonal_mec_z3.csv",
+    ),
 
     "nl34_z1" => (
         invest_generators   = "nl34_investable_generators.csv",
         legacy_generators   = "nl34_legacy_generators.csv",
+        renewable_gens      = "nl34_renewable_generators.csv",
+        total_load          = "nl34_total_load_timeseries.csv",
+        load_per_bus        = "nl34_load_timeseries_per_bus.csv",
+        ptdf                = "nl34_ptdf_matrix.csv",
+        bus_order           = "nl34_bus_order_z1.csv",
+        line_order          = "nl34_line_order.csv",
+        fixed_om            = "fixed_om_costs.csv",
+        renewable_cf        = "nl34_renewable_cf_per_generator.csv",
+        rep_profiles        = "repdays_8-unequal_weights/resulting_profiles.csv",        
+        rep_decisions       = "repdays_8-unequal_weights/decision_variables_short.csv",  
+    ),
+
+    "cs2_nl34_z1" => (
+        invest_generators   = "nl34_investable_generators.csv",
+        legacy_generators   = "cs2_nl34_legacy_generators.csv",
         renewable_gens      = "nl34_renewable_generators.csv",
         total_load          = "nl34_total_load_timeseries.csv",
         load_per_bus        = "nl34_load_timeseries_per_bus.csv",
@@ -91,6 +95,91 @@ const SCENARIOS = Dict(
         rep_decisions       = "poc_time/decision_variables_short.csv", 
         mec_profiles        = "poc_interzonal_mec_z3.csv",
     ),
+
+# ------------------------------------------------------------------------------------------
+# Verification scenarios
+# ------------------------------------------------------------------------------------------
+
+    "poc_z3_fc-equ" => (
+        invest_generators   = "poc_controllable_generators_fc-equ.csv",
+        legacy_generators   = "poc_legacy.csv",
+        renewable_gens      = "poc_renewable_generators.csv",
+        total_load          = "poc_total_load_timeseries.csv",
+        load_per_bus        = "poc_load_timeseries_per_bus.csv",
+        ptdf                = "poc_ptdf_matrix.csv",
+        bus_order           = "poc_bus_order_z3.csv",
+        line_order          = "poc_line_order.csv",
+        fixed_om            = "poc_fixed_om_costs.csv",
+        renewable_cf        = "poc_renewable_cf_per_generator.csv",
+        rep_profiles        = "poc_time/resulting_profiles.csv",        
+        rep_decisions       = "poc_time/decision_variables_short.csv", 
+        mec_profiles        = "poc_interzonal_mec_z3.csv",
+    ),
+
+    "poc_z3_vc-equ" => (
+        invest_generators   = "poc_controllable_generators_vc-equ.csv",
+        legacy_generators   = "poc_legacy.csv",
+        renewable_gens      = "poc_renewable_generators.csv",
+        total_load          = "poc_total_load_timeseries.csv",
+        load_per_bus        = "poc_load_timeseries_per_bus.csv",
+        ptdf                = "poc_ptdf_matrix.csv",
+        bus_order           = "poc_bus_order_z3.csv",
+        line_order          = "poc_line_order.csv",
+        fixed_om            = "poc_fixed_om_costs.csv",
+        renewable_cf        = "poc_renewable_cf_per_generator.csv",
+        rep_profiles        = "poc_time/resulting_profiles.csv",        
+        rep_decisions       = "poc_time/decision_variables_short.csv", 
+        mec_profiles        = "poc_interzonal_mec_z3.csv",
+    ),
+
+    "poc_z3_up-redis" => (
+        invest_generators   = "poc_controllable_generators.csv",
+        legacy_generators   = "poc_legacy_up-redis.csv",
+        renewable_gens      = "poc_renewable_generators.csv",
+        total_load          = "poc_total_load_timeseries.csv",
+        load_per_bus        = "poc_load_timeseries_per_bus.csv",
+        ptdf                = "poc_ptdf_matrix.csv",
+        bus_order           = "poc_bus_order_z3.csv",
+        line_order          = "poc_line_order.csv",
+        fixed_om            = "poc_fixed_om_costs.csv",
+        renewable_cf        = "poc_renewable_cf_per_generator.csv",
+        rep_profiles        = "poc_time/resulting_profiles.csv",        
+        rep_decisions       = "poc_time/decision_variables_short.csv", 
+        mec_profiles        = "poc_interzonal_mec_z3.csv",
+    ),
+
+    "poc_z3_high-linelim" => (
+        invest_generators   = "poc_controllable_generators.csv",
+        legacy_generators   = "poc_legacy.csv",
+        renewable_gens      = "poc_renewable_generators.csv",
+        total_load          = "poc_total_load_timeseries.csv",
+        load_per_bus        = "poc_load_timeseries_per_bus.csv",
+        ptdf                = "poc_ptdf_matrix.csv",
+        bus_order           = "poc_bus_order_z3.csv",
+        line_order          = "poc_line_order_high-linelim.csv",
+        fixed_om            = "poc_fixed_om_costs.csv",
+        renewable_cf        = "poc_renewable_cf_per_generator.csv",
+        rep_profiles        = "poc_time/resulting_profiles.csv",        
+        rep_decisions       = "poc_time/decision_variables_short.csv", 
+        mec_profiles        = "poc_interzonal_mec_z3.csv",
+    ),
+
+    "poc_z3_cost-equ" => (
+        invest_generators   = "poc_controllable_generators_cost-equ.csv",
+        legacy_generators   = "poc_legacy.csv",
+        renewable_gens      = "poc_renewable_generators.csv",
+        total_load          = "poc_total_load_timeseries.csv",
+        load_per_bus        = "poc_load_timeseries_per_bus.csv",
+        ptdf                = "poc_ptdf_matrix.csv",
+        bus_order           = "poc_bus_order_z3.csv",
+        line_order          = "poc_line_order.csv",
+        fixed_om            = "poc_fixed_om_costs.csv",
+        renewable_cf        = "poc_renewable_cf_per_generator.csv",
+        rep_profiles        = "poc_time/resulting_profiles.csv",        
+        rep_decisions       = "poc_time/decision_variables_short.csv", 
+        mec_profiles        = "poc_interzonal_mec_z3.csv",
+    ),
+    
 )
 
 function load_data(scenario="nl20"; data_dir="data", overrides...)

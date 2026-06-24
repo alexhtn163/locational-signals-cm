@@ -1,0 +1,355 @@
+method:
+  options:
+    total_periods: 365
+    representative_periods: 4
+    time_steps_per_period: 24
+    sampling_time: "Hour(1)"
+    mandatory_periods: []
+
+  optimization:
+    integral_weights: false
+    binary_ordering: true
+    equal_weights: true
+
+    duration_curve_error:
+      weight: 1.0
+      number_bins: 10
+      type: "absolute"
+
+results:
+  save_results: true
+  result_dir: "repdays_4"
+  create_plots: false
+
+time_series:
+  default:
+    csv_options:
+      delim: ","
+    timestamp: "snapshot"
+    sampling_time: "Hour(1)"
+
+  Load_NL0_0:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 0"
+    weight: 1.0
+
+  Load_NL0_1:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 1"
+    weight: 1.0
+
+  Load_NL0_10:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 10"
+    weight: 1.0
+
+  Load_NL0_11:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 11"
+    weight: 1.0
+
+  Load_NL0_12:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 12"
+    weight: 1.0
+
+  Load_NL0_13:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 13"
+    weight: 1.0
+
+  Load_NL0_14:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 14"
+    weight: 1.0
+
+  Load_NL0_15:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 15"
+    weight: 1.0
+
+  Load_NL0_16:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 16"
+    weight: 1.0
+
+  Load_NL0_17:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 17"
+    weight: 1.0
+
+  Load_NL0_18:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 18"
+    weight: 1.0
+
+  Load_NL0_19:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 19"
+    weight: 1.0
+
+  Load_NL0_2:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 2"
+    weight: 1.0
+
+  Load_NL0_3:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 3"
+    weight: 1.0
+
+  Load_NL0_4:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 4"
+    weight: 1.0
+
+  Load_NL0_5:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 5"
+    weight: 1.0
+
+  Load_NL0_6:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 6"
+    weight: 1.0
+
+  Load_NL0_7:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 7"
+    weight: 1.0
+
+  Load_NL0_8:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 8"
+    weight: 1.0
+
+  Load_NL0_9:
+    source: "nl20_load_timeseries_per_bus.csv"
+    value_column: "NL0 9"
+    weight: 1.0
+
+  CF_NL0_1_0_offwind_ac:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 1 0 offwind-ac"
+    weight: 1.0
+
+  CF_NL0_18_0_offwind_ac:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 18 0 offwind-ac"
+    weight: 1.0
+
+  CF_NL0_19_0_offwind_ac:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 19 0 offwind-ac"
+    weight: 1.0
+
+  CF_NL0_5_0_offwind_ac:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 5 0 offwind-ac"
+    weight: 1.0
+
+  CF_NL0_7_0_offwind_ac:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 7 0 offwind-ac"
+    weight: 1.0
+
+  CF_NL0_0_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 0 0 solar"
+    weight: 1.0
+
+  CF_NL0_1_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 1 0 solar"
+    weight: 1.0
+
+  CF_NL0_10_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 10 0 solar"
+    weight: 1.0
+
+  CF_NL0_11_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 11 0 solar"
+    weight: 1.0
+
+  CF_NL0_12_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 12 0 solar"
+    weight: 1.0
+
+  CF_NL0_13_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 13 0 solar"
+    weight: 1.0
+
+  CF_NL0_14_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 14 0 solar"
+    weight: 1.0
+
+  CF_NL0_15_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 15 0 solar"
+    weight: 1.0
+
+  CF_NL0_16_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 16 0 solar"
+    weight: 1.0
+
+  CF_NL0_17_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 17 0 solar"
+    weight: 1.0
+
+  CF_NL0_18_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 18 0 solar"
+    weight: 1.0
+
+  CF_NL0_19_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 19 0 solar"
+    weight: 1.0
+
+  CF_NL0_2_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 2 0 solar"
+    weight: 1.0
+
+  CF_NL0_3_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 3 0 solar"
+    weight: 1.0
+
+  CF_NL0_4_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 4 0 solar"
+    weight: 1.0
+
+  CF_NL0_5_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 5 0 solar"
+    weight: 1.0
+
+  CF_NL0_6_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 6 0 solar"
+    weight: 1.0
+
+  CF_NL0_7_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 7 0 solar"
+    weight: 1.0
+
+  CF_NL0_8_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 8 0 solar"
+    weight: 1.0
+
+  CF_NL0_9_0_solar:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 9 0 solar"
+    weight: 1.0
+
+  CF_NL0_0_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 0 0 onwind"
+    weight: 1.0
+
+  CF_NL0_1_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 1 0 onwind"
+    weight: 1.0
+
+  CF_NL0_10_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 10 0 onwind"
+    weight: 1.0
+
+  CF_NL0_11_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 11 0 onwind"
+    weight: 1.0
+
+  CF_NL0_12_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 12 0 onwind"
+    weight: 1.0
+
+  CF_NL0_13_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 13 0 onwind"
+    weight: 1.0
+
+  CF_NL0_14_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 14 0 onwind"
+    weight: 1.0
+
+  CF_NL0_15_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 15 0 onwind"
+    weight: 1.0
+
+  CF_NL0_16_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 16 0 onwind"
+    weight: 1.0
+
+  CF_NL0_17_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 17 0 onwind"
+    weight: 1.0
+
+  CF_NL0_18_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 18 0 onwind"
+    weight: 1.0
+
+  CF_NL0_19_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 19 0 onwind"
+    weight: 1.0
+
+  CF_NL0_2_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 2 0 onwind"
+    weight: 1.0
+
+  CF_NL0_3_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 3 0 onwind"
+    weight: 1.0
+
+  CF_NL0_4_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 4 0 onwind"
+    weight: 1.0
+
+  CF_NL0_5_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 5 0 onwind"
+    weight: 1.0
+
+  CF_NL0_6_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 6 0 onwind"
+    weight: 1.0
+
+  CF_NL0_7_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 7 0 onwind"
+    weight: 1.0
+
+  CF_NL0_8_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 8 0 onwind"
+    weight: 1.0
+
+  CF_NL0_9_0_onwind:
+    source: "nl20_renewable_cf_per_generator.csv"
+    value_column: "NL0 9 0 onwind"
+    weight: 1.0
+

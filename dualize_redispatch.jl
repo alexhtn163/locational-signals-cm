@@ -1,194 +1,108 @@
-using Dualization
-using JuMP
-using Gurobi
-using MathOptInterface
+using JuMP, Gurobi, Dualization, Printf
 
-include("helper_functions.jl")
+N    = [1, 2, 3]
+L    = [1, 2, 3]                                  # line 1: 1-2, line 2: 2-3, line 3: 1-3
+PTDF = Dict((1,1)=>0.0, (1,2)=> 0.667, (1,3)=>0.333,     # line 1-2
+            (2,1)=>0.0, (2,2)=>-0.333, (2,3)=>0.333,     # line 2-3
+            (3,1)=>0.0, (3,2)=> 0.333, (3,3)=>0.667)     # line 1-3
+Fmax = Dict(1 => 50.0, 2 => 50.0, 3 => 30.0)     # line 1-3 is the binding one
 
-# --- Setup ---
-T    = vcat(651)
-data = load_data("poc")
-net  = build_network(data)
-gen  = build_generators(data, T, net.bus_to_idx)
+G       = ["g1", "g2", "g3"]
+gen_bus = Dict("g1"=>1, "g2"=>2, "g3"=>3)
+vc      = Dict("g1"=>10.0, "g2"=>30.0, "g3"=>50.0)
+q       = Dict("g1"=>120.0, "g2"=>30.0, "g3"=>0.0)     
+q_max   = Dict("g1"=>150.0, "g2"=>100.0, "g3"=>100.0) 
+d       = Dict(1 => 50.0, 2 => 50.0, 3 => 50.0)        
 
-(; BUS, LINE, N, L, PTDF, Fmax, bus_to_idx) = net
-(; I, vc, cap, tech, gens, fc, a, alpha)     = gen
+h   = 150.0    
+PEN = 300.0    
 
+gen_at(n) = sum(q[g] for g in G if gen_bus[g] == n; init = 0.0)
+# market flow on each line (constant): becomes PTDF*q*phi (bilinear) once coupled
+f_mkt = Dict(l => sum(PTDF[(l,n)] * (gen_at(n) - d[n]) for n in N) for l in L)
 
-WTP       = 100
-D_max     = Dict(t => Float64(data.dem_tot_df.load[t]) for t in T)
-snapshots = Vector{String}(data.dem_df.snapshot)
-d_max     = zeros(nrow(data.dem_df), length(BUS))
-for (n_idx, bus_name) in enumerate(BUS)
-    d_max[:, n_idx] = Float64.(data.dem_df[!, bus_name])
+# =============================================================================
+# 1. PRIMAL  (matches your current redispatch model)
+# =============================================================================
+function build_primal_rd(; with_optimizer = true)
+    m = with_optimizer ? Model(Gurobi.Optimizer) : Model()
+    with_optimizer && set_silent(m)
+    @variable(m, r_up[G]   >= 0)
+    @variable(m, r_down[G] >= 0)
+    @variable(m, curt[N]   >= 0)
+    @variable(m, p_flow[L])
+    @expression(m, p_inj[n in N],
+        sum(q[g] + r_up[g] - r_down[g] for g in G if gen_bus[g] == n; init = 0.0) - d[n] + curt[n])
+    @constraint(m, c_rup[g in G],  r_up[g]   - (q_max[g] - q[g]) <= 0)                      # beta_pos
+    @constraint(m, c_rdn[g in G],  r_down[g] - q[g]              <= 0)                      # beta_neg
+    @constraint(m, c_curt[n in N], curt[n]   - d[n]             <= 0)                      # beta_curt
+    @constraint(m, c_bal, sum(r_up[g] - r_down[g] for g in G) + sum(curt[n] for n in N) == 0)  # lambda_rd
+    @constraint(m, c_fup[l in L],  p_flow[l] - Fmax[l] <= 0)                                # rho_up
+    @constraint(m, c_flo[l in L], -p_flow[l] - Fmax[l] <= 0)                                # rho_low
+    @constraint(m, c_flow[l in L], p_flow[l] - sum(PTDF[(l,n)] * p_inj[n] for n in N) == 0) # phi
+    @objective(m, Min,
+        sum((vc[g] + h) * r_up[g] + (-vc[g] + h) * r_down[g] for g in G) +
+        PEN * sum(curt[n] for n in N))
+    return m, (; r_up, r_down, curt, p_flow)
 end
 
-d_nodal = Dict((t, bus) => data.dem_df[data.dem_df.snapshot .== snapshots[t], bus][1] / D_max[t] for t in T, bus in BUS)
-# for any t, d_nodal has to sum to 1
-for t in T
-    @assert sum(d_nodal[(t, bus)] for bus in BUS) ≈ 1 "Nodal demand shares do not sum to 1 for time $t"
+# =============================================================================
+# 2. MANUAL DUAL  (clean KKT: beta, rho >= 0 ; lambda_rd, phi free)
+# =============================================================================
+function build_manual_dual_rd()
+    dm = Model(Gurobi.Optimizer); set_silent(dm)
+    @variable(dm, beta_pos[G]  >= 0)
+    @variable(dm, beta_neg[G]  >= 0)
+    @variable(dm, beta_curt[N] >= 0)
+    @variable(dm, lambda_rd)                 # free
+    @variable(dm, rho_up[L]    >= 0)
+    @variable(dm, rho_low[L]   >= 0)
+    @variable(dm, phi[L])                    # free
+    # dual feasibility (stationarity)
+    @constraint(dm, df_rup[g in G],
+        (vc[g] + h)  + beta_pos[g]  + lambda_rd - sum(PTDF[(l,gen_bus[g])] * phi[l] for l in L) >= 0)
+    @constraint(dm, df_rdn[g in G],
+        (-vc[g] + h) + beta_neg[g]  - lambda_rd + sum(PTDF[(l,gen_bus[g])] * phi[l] for l in L) >= 0)
+    @constraint(dm, df_curt[n in N],
+        PEN          + beta_curt[n] + lambda_rd - sum(PTDF[(l,n)] * phi[l] for l in L)          >= 0)
+    @constraint(dm, df_pflow[l in L], phi[l] + rho_up[l] - rho_low[l] == 0)
+    # dual objective = inf_x L  (constant part of the Lagrangian)
+    @objective(dm, Max,
+        - sum((q_max[g] - q[g]) * beta_pos[g] for g in G)
+        - sum(q[g] * beta_neg[g]              for g in G)
+        - sum(d[n] * beta_curt[n]             for n in N)
+        - sum(Fmax[l] * rho_up[l]             for l in L)
+        - sum(Fmax[l] * rho_low[l]            for l in L)
+        - sum(f_mkt[l] * phi[l]               for l in L))
+    return dm, (; beta_pos, beta_neg, beta_curt, lambda_rd, rho_up, rho_low, phi)
 end
 
-PEN = 100000.0 # penalty for curtailment in redispatch
+# =============================================================================
+# Run the three-way check
+# =============================================================================
+prim, pc = build_primal_rd(); optimize!(prim); p = objective_value(prim)
 
-# --- Generator → bus mapping ---
-gen_bus_idx = Dict(i => bus_to_idx[gens[i]] for i in I)
+prim2, _ = build_primal_rd(with_optimizer = false)
+ad = dualize(prim2); set_optimizer(ad, Gurobi.Optimizer); set_silent(ad); optimize!(ad)
+a = objective_value(ad)
 
+man, mc = build_manual_dual_rd(); optimize!(man); m = objective_value(man)
 
-q_max = Dict((t, i) => cap[i] for t in T, i in I) # available capacity of generator i at time t
+println("="^62)
+@printf("primal      obj = %14.4f\n", p)
+@printf("auto-dual   obj = %14.4f   (Dualization.jl)\n", a)
+@printf("manual dual obj = %14.4f\n", m)
+println("-"^62)
+println("r_up   : ", Dict(g => round(value(pc.r_up[g]),   digits=2) for g in G))
+println("r_down : ", Dict(g => round(value(pc.r_down[g]), digits=2) for g in G))
+println("flows  : ", Dict(l => round(value(pc.p_flow[l]), digits=2) for l in L), "  (Fmax ", Fmax, ")")
+println("phi    : ", Dict(l => round(value(mc.phi[l]),    digits=3) for l in L))
+println("  internal check phi == rho_low - rho_up: ",
+        Dict(l => round(value(mc.rho_low[l]) - value(mc.rho_up[l]), digits=3) for l in L))
+println("="^62)
 
-q_max_inf = Dict((t, i) => 0.0 for t in T, i in I) # available capacity of generator i at time t
-q_max_inf[(651, "NL0 0 coal")] = 200
-q_max_inf[(651, "NL0 1 coal")] = 0.0
-q_max_inf[(651, "NL0 10 coal")] = 95.0
-
-q = Dict((t, i) => 0.0 for t in T, i in I) # power generated by generator i at time t
-q[(651, "NL0 0 coal")] = 40.0
-q[(651, "NL0 1 coal")] = 0.0
-q[(651, "NL0 10 coal")] = 95.0
-
-lambda_e = 5.0 # market price at time t
-
-m_rd = Model(Gurobi.Optimizer)
-
-nodal_demand = @expression(m_rd, d[t in T, n in N], d_nodal[(t, BUS[n])] * D_max[t]) # nodal demand at time t and node n
-curtailment = @variable(m_rd, curt[t in T, n in N] >= 0) # curtailment at node n at time t
-red_pos = @variable(m_rd, r_up[t in T, i in I] >= 0) # upward redispatch provided by generator i at time t
-red_neg = @variable(m_rd, r_down[t in T, i in I] >= 0) # downward redispatch provided by generator i at time t
-power_flow = @variable(m_rd, p_flow[t in T, l in L]) # power flow on line l at time t
-power_inj = @expression(m_rd, p_inj[t in T, n in N], sum(q[t, i] for i in I if gen_bus_idx[i] == n)+ sum(r_up[t, i] - r_down[t, i] for i in I if gen_bus_idx[i] == n) - (d[t, n] - curt[t, n])) # power injected at node n at time t
-
-red_pos_up = @constraint(m_rd, red_pos_up[t in T, i in I], r_up[t, i] - q_max[t, i] + q[t, i] <= 0) # upward redispatch cannot exceed remaining capacity
-red_neg_up = @constraint(m_rd, red_neg_up[t in T, i in I], r_down[t, i] - q[t, i] <= 0) # downward redispatch cannot exceed current generation
-curt_up = @constraint(m_rd, curt_up[t in T, n in N], curt[t, n] - d[t, n] <= 0) # curtailment cannot exceed demand
-redispatch_balance = @constraint(m_rd, redispatch_balance[t in T], sum(r_up[t,i] - r_down[t,i] for i in I) == 0) # total redispatch must be zero at time t
-thermal_limit_up = @constraint(m_rd, thermal_limit_up[t in T, l in L], p_flow[t, l] - Fmax[l] <= 0) # flow on line l cannot exceed capacity in positive direction
-thermal_limit_low = @constraint(m_rd, thermal_limit_low[t in T, l in L], -Fmax[l] - p_flow[t, l] <= 0) # flow on line l cannot exceed capacity in negative direction
-flow_definition = @constraint(m_rd, flow_definition[t in T, l in L], p_flow[t, l] - sum(PTDF[l, n] * p_inj[t, n] for n in N) == 0) # power flow on line l at time t
-
-
-
-@objective(m_rd, Min, sum(sum(vc[i] * r_up[t, i] + (vc[i] - lambda_e) * r_down[t, i] for i in I) + PEN * sum(curt[t, n] for n in N) for t in T))
-optimize!(m_rd)
-
-dual_rd = dualize(m_rd; dual_names = DualNames("dual_var_", "dual_constr_"))
-print(dual_rd)
-set_optimizer(dual_rd, Gurobi.Optimizer)
-optimize!(dual_rd)
-
-for i in I
-    n = gen_bus_idx[i]
-    println(i, " at node ", n, ": PTDF column = ", [PTDF[l,n] for l in L])
-end
-
-p_flow_market = Dict((t, l) => sum(PTDF[l, n] * 
-            (sum(q[t, i] for i in I if gen_bus_idx[i] == n; init=0.0) - d[t, n])
-            for n in N)
-            for t in T, l in L)
-
-d_rd = Model(Gurobi.Optimizer)
-
-dual_red_pos_up = @variable(d_rd, beta_pos_up[t in T, i in I] <= 0)
-dual_red_pos_low = @variable(d_rd, beta_pos_low[t in T, i in I] <= 0)
-dual_red_neg_up = @variable(d_rd, beta_neg_up[t in T, i in I] <= 0)
-dual_red_neg_low = @variable(d_rd, beta_neg_low[t in T, i in I] <= 0)
-dual_curt_up = @variable(d_rd, beta_curt_up[t in T, n in N] <= 0)
-dual_red_balance = @variable(d_rd, lambda_rd[t in T])
-dual_thermal_up = @variable(d_rd, rho_up[t in T, l in L] <= 0)
-dual_thermal_low = @variable(d_rd, rho_low[t in T, l in L] <= 0)
-dual_p_flow = @variable(d_rd, phi[t in T, l in L]) # dual variable for power flow constraint
-
-dual_feas_r_up = @constraint(d_rd, dual_feas_r_up[t in T, i in I], vc[i] - lambda_rd[t] - beta_pos_up[t, i]  + sum(PTDF[l, gen_bus_idx[i]] * phi[t, l] for l in L) >= 0) # dual feasibility for upward redispatch
-dual_feas_r_down = @constraint(d_rd, dual_feas_r_down[t in T, i in I], lambda_e - vc[i] + lambda_rd[t] - beta_neg_up[t, i]  - sum(PTDF[l, gen_bus_idx[i]] * phi[t, l] for l in L) >= 0) # dual feasibility for downward redispatch
-dual_feas_thermal_limit = @constraint(d_rd, dual_feas_thermal_limit[t in T, l in L], phi[t, l] + rho_up[t, l] - rho_low[t, l] == 0) # dual feasibility for thermal limit constraint
-dual_feas_curt = @constraint(d_rd, dual_feas_curt[t in T, n in N], PEN - beta_curt_up[t, n] + sum(PTDF[l, n] * phi[t, l] for l in L) >= 0) # dual feasibility for curtailment constraint
-
-@objective(d_rd, Max, sum(
-      sum((q_max[t,i] - q[t,i]) * beta_pos_up[t,i] for i in I)
-    + sum(q[t,i] * beta_neg_up[t,i] for i in I)
-    + sum(d_nodal[(t, BUS[n])] * D_max[t] * beta_curt_up[t, n] for n in N)
-    + sum(Fmax[l] * rho_up[t,l]  for l in L)
-    + sum(Fmax[l] * rho_low[t,l] for l in L)        
-    + sum(p_flow_market[t, l] * phi[t, l] for l in L) for t in T))
-
-
-optimize!(d_rd)
-
-print(d_rd)
-
-println("Dual objective: ", objective_value(d_rd))
-println("Dual model objective: ", objective_value(dual_rd))
-println("Primal objective: ", objective_value(m_rd))
-
-
-#--- Infeasable redispatch check (curtailment)---
-
-m_rd_inf = Model(Gurobi.Optimizer)
-
-curtailment = @variable(m_rd_inf, curt[t in T, n in N] >= 0) # curtailment at node n at time t
-nodal_demand = @expression(m_rd_inf, d[t in T, n in N], d_nodal[(t, BUS[n])] * D_max[t]) # nodal demand at time t and node n
-red_pos = @variable(m_rd_inf, r_up[t in T, i in I] >= 0) # upward redispatch provided by generator i at time t
-red_neg = @variable(m_rd_inf, r_down[t in T, i in I] >= 0) # downward redispatch provided by generator i at time t
-power_flow = @variable(m_rd_inf, p_flow[t in T, l in L]) # power flow on line l at time t
-power_inj = @expression(m_rd_inf, p_inj[t in T, n in N], sum(q[t, i] for i in I if gen_bus_idx[i] == n)+ sum(r_up[t, i] - r_down[t, i] for i in I if gen_bus_idx[i] == n) - d[t, n] + curt[t, n]) # power injected at node n at time t
-
-red_pos_up = @constraint(m_rd_inf, red_pos_up[t in T, i in I], r_up[t, i] - q_max_inf[t, i] + q[t, i] <= 0) # upward redispatch cannot exceed remaining capacity
-red_neg_up = @constraint(m_rd_inf, red_neg_up[t in T, i in I], r_down[t, i] - q[t, i] <= 0) # downward redispatch cannot exceed current generation
-curt_up = @constraint(m_rd_inf, curt_up[t in T, n in N], curt[t, n] - d[t, n] <= 0) # curtailment cannot exceed demand
-redispatch_balance = @constraint(m_rd_inf, redispatch_balance[t in T], sum(r_up[t,i] - r_down[t,i] for i in I) == 0) # total redispatch must be zero at time t
-thermal_limit_up = @constraint(m_rd_inf, thermal_limit_up[t in T, l in L], p_flow[t, l] - Fmax[l] <= 0) # flow on line l cannot exceed capacity in positive direction
-thermal_limit_low = @constraint(m_rd_inf, thermal_limit_low[t in T, l in L], -Fmax[l] - p_flow[t, l] <= 0) # flow on line l cannot exceed capacity in negative direction
-flow_definition = @constraint(m_rd_inf, flow_definition[t in T, l in L], p_flow[t, l] - sum(PTDF[l, n] * p_inj[t, n] for n in N) == 0) # power flow on line l at time t
-
-
-@objective(m_rd_inf, Min, sum(sum(vc[i] * r_up[t, i] + (vc[i] - lambda_e) * r_down[t, i] for i in I) + PEN * sum(curt[t, n] for n in N) for t in T))
-optimize!(m_rd_inf)
-
-# check results
-for t in T
-    for n in N
-        println("nodal demand: ", value(d[t, n]))
-        println("curtailment: ", value(curt[t, n]))
-    end
-end
-
-dual_rd_inf = dualize(m_rd_inf; dual_names = DualNames("dual_var_", "dual_constr_"))
-set_optimizer(dual_rd_inf, Gurobi.Optimizer)
-optimize!(dual_rd_inf)
-print(dual_rd_inf)
-
-d_rd_inf = Model(Gurobi.Optimizer)
-
-nodal_demand = @expression(d_rd_inf, d[t in T, n in N], d_nodal[(t, BUS[n])] * D_max[t]) # nodal demand at time t and node n
-power_inj = @expression(d_rd_inf, p_inj[t in T, n in N], sum(q[t, i] for i in I if gen_bus_idx[i] == n)+ sum(r_up[t, i] - r_down[t, i] for i in I if gen_bus_idx[i] == n) - d[t, n] + curt[t, n]) # power injected at node n at time t
-
-dual_red_pos_up = @variable(d_rd_inf, beta_pos_up[t in T, i in I] <= 0)
-dual_red_pos_low = @variable(d_rd_inf, beta_pos_low[t in T, i in I] <= 0)
-dual_red_neg_up = @variable(d_rd_inf, beta_neg_up[t in T, i in I] <= 0)
-dual_red_neg_low = @variable(d_rd_inf, beta_neg_low[t in T, i in I] <= 0)
-dual_curt_up = @variable(d_rd_inf, beta_curt_up[t in T, n in N] <= 0)
-dual_red_balance = @variable(d_rd_inf, lambda_rd[t in T])
-dual_thermal_up = @variable(d_rd_inf, rho_up[t in T, l in L] <= 0)
-dual_thermal_low = @variable(d_rd_inf, rho_low[t in T, l in L] <= 0)
-dual_p_flow = @variable(d_rd_inf, phi[t in T, l in L]) # dual variable for power flow constraint
-
-dual_feas_r_up = @constraint(d_rd_inf, dual_feas_r_up[t in T, i in I], vc[i] - lambda_rd[t] - beta_pos_up[t, i]  + sum(PTDF[l, gen_bus_idx[i]] * phi[t, l] for l in L) >= 0) # dual feasibility for upward redispatch
-dual_feas_r_down = @constraint(d_rd_inf, dual_feas_r_down[t in T, i in I], lambda_e - vc[i] + lambda_rd[t] - beta_neg_up[t, i]  - sum(PTDF[l, gen_bus_idx[i]] * phi[t, l] for l in L) >= 0) # dual feasibility for downward redispatch
-dual_feas_thermal_limit = @constraint(d_rd_inf, dual_feas_thermal_limit[t in T, l in L], phi[t, l] + rho_up[t, l] - rho_low[t, l] == 0) # dual feasibility for thermal limit constraint
-dual_feas_curt = @constraint(d_rd_inf, dual_feas_curt[t in T, n in N], PEN - beta_curt_up[t, n] + sum(PTDF[l, n] * phi[t, l] for l in L) >= 0) # dual feasibility for curtailment constraint
-
-@objective(d_rd_inf, Max, sum(
-      sum((q_max_inf[t,i] - q[t,i]) * beta_pos_up[t,i] for i in I)
-    + sum(q[t,i] * beta_neg_up[t,i] for i in I)
-    + sum(d[t, n] * beta_curt_up[t, n] for n in N)
-    + sum(Fmax[l] * rho_up[t,l]  for l in L)
-    + sum(Fmax[l] * rho_low[t,l] for l in L)
-    + sum(p_flow_market[t, l] * phi[t, l] for l in L) for t in T))
-
-optimize!(d_rd_inf)
-
-println("Dual objective: ", objective_value(d_rd_inf))
-println("Dual model objective: ", objective_value(dual_rd_inf))
-println("Primal objective: ", objective_value(m_rd_inf))
+@assert isapprox(p, a; rtol = 1e-6) "primal != auto-dual -> primal model issue"
+@assert isapprox(p, m; rtol = 1e-6) "manual dual objective mismatch -> sign/structure bug"
+println("OK: primal == auto-dual == manual dual.")
 
 
