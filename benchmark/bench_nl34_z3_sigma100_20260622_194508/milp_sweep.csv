@@ -1,0 +1,2 @@
+w_idx,status,solve_time,mip_gap,n_bin
+1,TIME_LIMIT,3601.207000017166,0.2058831359878891,44276

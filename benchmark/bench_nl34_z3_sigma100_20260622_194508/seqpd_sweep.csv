@@ -1,0 +1,2 @@
+w_idx,status,solve_time,mip_gap,n_qnz
+1,TIME_LIMIT,3600.167999982834,1.0e100,56442

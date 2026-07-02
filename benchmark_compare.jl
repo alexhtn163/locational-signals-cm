@@ -1,12 +1,12 @@
 using Dates, LinearAlgebra, Printf, JuMP, Statistics
 include("model_milp.jl")            
 
-scenario   = "nl34_z3"
+scenario   = "poc_z3"
 sigma      = 1.0
 time_limit = 3600.0
 threads    = 8          
 
-run_dir = "bench_$(scenario)_sigma$(Int(sigma*100))_$(Dates.format(now(),"yyyymmdd_HHMMSS"))"
+run_dir = "benchmark/bench_$(scenario)_sigma$(Int(sigma*100))_$(Dates.format(now(),"yyyymmdd_HHMMSS"))"
 log_dir = joinpath(run_dir, "logs"); mkpath(log_dir)
 P = load_params(scenario; sigma = sigma)
  
@@ -72,8 +72,6 @@ function run_sense_checks!(sense_checks, label, run, P, H)
     push!(sense_checks, (label, run, "voll_minus_markup", threshold,
         "generators with vc < this make r_up strictly cheaper than curt in the markup-priced objective"))
 
-    # market/capacity complementary slackness (mirrors the redispatch check below):
-    # q*stat_q, c*stat_c, c_cm*stat_cm, c_dem*stat_dem -- should be ~0 if SD alone enforces it
     comp_q_I  = maximum(value(H.q[t,i])*value(H.st_q_I[t,i])      for t in T, i in I; init=0.0)
     comp_q_J  = maximum(value(H.q[t,j])*value(H.st_q_J[t,j])      for t in T, j in J; init=0.0)
     comp_c    = maximum(value(H.c[i])*value(H.st_c[i])            for i in I; init=0.0)
@@ -87,11 +85,7 @@ function run_sense_checks!(sense_checks, label, run, P, H)
     push!(sense_checks, (label, run, "max_comp_slack_ccm_J", comp_ccmJ, "c_cm*stat_cm (legacy); should be ~0"))
     push!(sense_checks, (label, run, "max_comp_slack_cdem", comp_cdem, "c_dem*stat_dem (capacity); should be ~0"))
 
-    # complementary slackness: r_up * stat_rup, r_down * stat_rdn, curt * stat_curt -- should be ~0.
-    # If these are NOT ~0, the SD equation is satisfied without true optimality of the redispatch
-    # primal (possible here because q,c are variables, not fixed parameters -- the standard LP
-    # duality argument that primal+dual feasibility + equal objectives implies complementarity
-    # does not automatically carry over once the "parameters" of the subproblem are co-optimized).
+
     stat_rup(t,g) = P.W_t[t]*(vc[g]+hmk) + value(H.beta_pos[t,g]) + value(H.lambda_rd[t]) -
                     sum(P.PTDF[l,P.gen_bus_idx[g]]*value(H.phi[t,l]) for l in P.L)
     stat_rdn(t,g) = P.W_t[t]*(-vc[g]+hmk) + value(H.beta_neg[t,g]) - value(H.lambda_rd[t]) +

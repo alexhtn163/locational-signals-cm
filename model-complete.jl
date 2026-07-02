@@ -11,7 +11,7 @@ include("helper_functions.jl")
 # ============================================================================
 # Setup
 # ============================================================================
-scenario = "poc_z3"
+scenario = "cs2_nl34_z3"
 data = load_data(scenario)
 net  = build_network(data)
 rep  = build_rep_days(data, net.bus_to_idx)
@@ -29,13 +29,13 @@ snapshots = Vector{String}(data.dem_df.snapshot)
 IJ          = vcat(I, J)
 gen_bus_idx = Dict(g => bus_to_idx[gens[g]] for g in IJ)
  
-VOLL  = 4000
+VOLL  = 100
 PEN   = 69000
 #PEN = 300 # poc
 J_res = [j for j in J if tech[j] in ["solar", "onwind", "offwind-ac"]]
  
-#sigmas = [0.0, 0.25, 0.5, 0.75, 1.0]
-sigmas = [0.5]
+sigmas = [0.0, 0.25, 0.5]
+#igmas = [0.5]
  
 # ============================================================================
 # Sigma loop
@@ -90,7 +90,7 @@ for sigma in sigmas
     all_weights = vcat(weights_ptdf)
  
     # ── K constants ──────────────────────────────────────────────────────
-    K_q   = maximum(cap[g] for g in IJ; init = 0.0)
+     K_q   = maximum(cap[g] for g in IJ; init = 0.0)
     K_ls  = maximum(D_max[t] for t in T; init = 0.0)
     K_c   = maximum(cap[i] for i in I; init = 0.0)
     K_cm  = maximum(cap[g] for g in IJ; init = 0.0)
@@ -104,10 +104,10 @@ for sigma in sigmas
     K_slack_cm_bud_J = maximum(alpha[j] * cap[j] for j in J; init = 0.0)
  
     total_hours = sum(W_t[t] for t in T)
-    Wmax        = maximum(W_t[t] for t in T)   # W_t fix: mu_g_up is now W_t-scaled
+    Wmax        = maximum(W_t[t] for t in T)
     lambda_c_ub = maximum(fc[i] for i in I)
-    cap_up_ub   = VOLL * total_hours + lambda_c_ub
-    P_cap_cm    = 2.0 * lambda_c_ub
+    P_cap_cm    = lambda_c_ub
+    cap_up_ub   = total_hours * VOLL + P_cap_cm
  
     K_mu_g_I      = VOLL * Wmax
     K_mu_g_J      = VOLL * Wmax
@@ -120,7 +120,7 @@ for sigma in sigmas
  
     K_stat_q_I   = Wmax * (maximum(vc[i] for i in I; init = 0.0) + VOLL)
     K_stat_q_J   = Wmax * (maximum(vc[j] for j in J; init = 0.0) + VOLL)
-    K_stat_c     = maximum(fc[g] for g in IJ; init = 0.0) + cap_up_ub + 2 * lambda_c_ub
+    K_stat_c     = maximum(fc[g] for g in IJ; init = 0.0) + cap_up_ub + lambda_c_ub
     K_stat_cm    = P_cap_cm
     K_stat_dem_c = P_cap_cm
     K_stat_ls    = VOLL * Wmax
@@ -288,7 +288,7 @@ for sigma in sigmas
         @constraint(milp, stat_dem_c[z in Z],
             lambda_c[z] - nu_c[z] - lambda_c_sys >= 0)
  
-        # ── Binary variables (Fortuny-Amat linearisation) ────────────────────
+        # ── Binary variables ────────────────────
         @variable(milp, r_q_I[t in T, i in I],   Bin)
         @variable(milp, r_q_J[t in T, j in J],   Bin)
         @variable(milp, r_g_up_I[t in T, i in I], Bin)
@@ -708,7 +708,7 @@ for sigma in sigmas
     # ========================================================================
     # Save results
     # ========================================================================
-    run_name = "$(scenario)_sigma$(Int(sigma * 100))"
+    run_name = "final_$(scenario)_sigma$(Int(sigma * 100))"
     run_dir  = joinpath("results", run_name)
     mkpath(run_dir)
  

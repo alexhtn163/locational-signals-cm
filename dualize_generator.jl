@@ -1,14 +1,13 @@
 using JuMP, Gurobi, Dualization, Printf
 
-# --- Toy data with UNEQUAL representative-period weights (W_t matters here!) --
+# --- Toy data  --
 T        = [1, 2, 3]
-W        = Dict(1 => 4000.0, 2 => 2760.0, 3 => 2000.0)   # period weights
-lambda_e = Dict(1 => 80.0, 2 => 45.0, 3 => 30.0)         # per-period energy price (PARAMETER)
-lambda_c = 55_000.0                                       # zonal capacity price (PARAMETER)
+W        = Dict(1 => 4000.0, 2 => 2760.0, 3 => 2000.0)   
+lambda_e = Dict(1 => 80.0, 2 => 45.0, 3 => 30.0)         
+lambda_c = 55_000.0                                       
 
-# investable generator i
-vc_i, fc_i, cap_i, alpha_i = 40.0, 50_000.0, 600.0, 1.0   # controllable -> q_max = c (no a)
-# legacy generator j (controllable; renewables would have a_j[t] < 1 and alpha_j = 0)
+
+vc_i, fc_i, cap_i, alpha_i = 40.0, 50_000.0, 600.0, 1.0  
 vc_j, cap_j, alpha_j = 35.0, 400.0, 1.0
 a_j = Dict(1 => 1.0, 2 => 1.0, 3 => 1.0)
 
@@ -41,8 +40,8 @@ end
 function primal_legacy(; with_optimizer = true)
     m = with_optimizer ? Model(Gurobi.Optimizer) : Model(); with_optimizer && set_silent(m)
     @variable(m, q[T] >= 0); @variable(m, c_cm >= 0)
-    @constraint(m, gen_cap[t in T], q[t] - a_j[t]*cap_j  <= 0)   # q <= a*cap     mu_g_up  (param RHS)
-    @constraint(m, cm_bud,          c_cm - alpha_j*cap_j <= 0)   # c_cm <= alpha*cap       mu_cm_bud (param RHS)
+    @constraint(m, gen_cap[t in T], q[t] - a_j[t]*cap_j  <= 0)   
+    @constraint(m, cm_bud,          c_cm - alpha_j*cap_j <= 0)   
     @objective(m, Max, sum(W[t]*(lambda_e[t]-vc_j)*q[t] for t in T) + lambda_c*c_cm)
     return m, (; gen_cap, cm_bud)
 end
@@ -50,9 +49,9 @@ end
 function dual_legacy()
     d = Model(Gurobi.Optimizer); set_silent(d)
     @variable(d, mu_g_up[T] >= 0); @variable(d, mu_cm_bud >= 0)
-    @constraint(d, df_q[t in T], mu_g_up[t] >= W[t]*(lambda_e[t]-vc_j))                 # W_t !
+    @constraint(d, df_q[t in T], mu_g_up[t] >= W[t]*(lambda_e[t]-vc_j))                 
     @constraint(d, df_ccm, mu_cm_bud >= lambda_c)
-    @objective(d, Min, sum(a_j[t]*cap_j*mu_g_up[t] for t in T) + alpha_j*cap_j*mu_cm_bud)  # both survive
+    @objective(d, Min, sum(a_j[t]*cap_j*mu_g_up[t] for t in T) + alpha_j*cap_j*mu_cm_bud)  
     return d, (; mu_g_up, mu_cm_bud)
 end
 

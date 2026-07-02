@@ -1,0 +1,66 @@
+
+Gurobi 13.0.0 (win64) logging started Mon Jun 29 16:13:52 2026
+
+Set parameter LogFile to value "benchmark/bench_poc_z3_sigma100_20260629_161303\logs\fullpd_min.log"
+Set parameter LogToConsole to value 1
+Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (win64 - Windows 11+.0 (26200.2))
+
+CPU model: 13th Gen Intel(R) Core(TM) i5-1340P, instruction set [SSE2|AVX|AVX2]
+Thread count: 12 physical cores, 16 logical processors, using up to 8 threads
+
+Non-default parameters:
+TimeLimit  3600
+NonConvex  2
+Threads  8
+
+Optimize a model with 214 rows, 211 columns and 693 nonzeros (Min)
+Model fingerprint: 0xdb66285b
+Model has 45 linear objective coefficients
+Model has 11 quadratic constraints
+Coefficient statistics:
+  Matrix range     [4e-02, 1e+00]
+  QMatrix range    [4e-02, 1e+00]
+  QLMatrix range   [1e-02, 3e+02]
+  Objective range  [1e-02, 3e+02]
+  Bounds range     [5e+00, 9e+02]
+  RHS range        [1e-02, 4e+02]
+Presolve removed 72 rows and 30 columns
+
+Continuous model is non-convex -- solving as a MIP
+
+Presolve removed 75 rows and 24 columns
+Presolve time: 0.00s
+Presolved: 543 rows, 284 columns, 1525 nonzeros
+Presolved model has 99 bilinear constraint(s)
+Warning: Model contains variables with very large bounds participating
+         in product terms.
+         Presolve was not able to compute smaller bounds for these variables.
+         Consider bounding these variables or reformulating the model.
+
+Variable types: 284 continuous, 0 integer (0 binary)
+
+Root relaxation: objective -1.871181e+03, 202 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -1871.1815    0   20          - -1871.1815      -     -    0s
+     0     0 1703.44255    0   10          - 1703.44255      -     -    0s
+     0     0 1703.44255    0    4          - 1703.44255      -     -    0s
+     0     0 1703.44255    0    4          - 1703.44255      -     -    0s
+H    0     0                    2519.1201578 1703.44255  32.4%     -    0s
+     0     2 1703.44255    0    4 2519.12016 1703.44255  32.4%     -    0s
+H  555    83                    1703.4425487 1703.44255  0.00%  23.9    0s
+
+Cutting planes:
+  RLT: 13
+
+Explored 662 nodes (15532 simplex iterations) in 0.58 seconds (0.26 work units)
+Thread count was 8 (of 16 available processors)
+
+Solution count 2: 1703.44 2519.12 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.703442548706e+03, best bound 1.703442548706e+03, gap 0.0000%
+
+User-callback calls 134, time in user-callback 0.00 sec

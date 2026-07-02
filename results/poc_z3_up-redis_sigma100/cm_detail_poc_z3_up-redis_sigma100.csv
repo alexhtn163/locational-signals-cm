@@ -1,0 +1,43 @@
+run_id,generator,type,bus,zone,cm_offer,lambda_c_z,mu_cm_bud
+1,NL0 0 CCGT,investable,NL0 0,1,20.714285714285715,20.5,20.5
+1,NL0 1 coal,investable,NL0 1,2,155.0,26.0,26.0
+1,NL0 10 nuclear,investable,NL0 10,3,22.5,30.5,30.5
+1,NL0 0 0 solar,legacy,NL0 0,1,0.0,20.5,20.5
+1,NL0 1 0 solar,legacy,NL0 1,2,0.0,26.0,26.0
+1,NL0 10 0 solar,legacy,NL0 10,3,0.0,30.5,30.5
+1,NL0 10 0 CCGT,legacy,NL0 10,3,100.0,30.5,30.5
+2,NL0 0 CCGT,investable,NL0 0,1,20.714285714285715,20.5,20.5
+2,NL0 1 coal,investable,NL0 1,2,155.0,26.0,26.0
+2,NL0 10 nuclear,investable,NL0 10,3,22.5,30.5,30.5
+2,NL0 0 0 solar,legacy,NL0 0,1,0.0,20.5,20.5
+2,NL0 1 0 solar,legacy,NL0 1,2,0.0,26.0,26.0
+2,NL0 10 0 solar,legacy,NL0 10,3,0.0,30.5,30.5
+2,NL0 10 0 CCGT,legacy,NL0 10,3,100.0,30.5,30.5
+3,NL0 0 CCGT,investable,NL0 0,1,20.714285714285715,20.5,20.5
+3,NL0 1 coal,investable,NL0 1,2,155.0,26.0,26.0
+3,NL0 10 nuclear,investable,NL0 10,3,22.5,30.5,30.5
+3,NL0 0 0 solar,legacy,NL0 0,1,0.0,20.5,20.5
+3,NL0 1 0 solar,legacy,NL0 1,2,0.0,26.0,26.0
+3,NL0 10 0 solar,legacy,NL0 10,3,0.0,30.5,30.5
+3,NL0 10 0 CCGT,legacy,NL0 10,3,100.0,30.5,30.5
+4,NL0 0 CCGT,investable,NL0 0,1,20.714285714285715,20.5,20.5
+4,NL0 1 coal,investable,NL0 1,2,155.0,26.0,26.0
+4,NL0 10 nuclear,investable,NL0 10,3,22.5,30.5,30.5
+4,NL0 0 0 solar,legacy,NL0 0,1,0.0,20.5,20.5
+4,NL0 1 0 solar,legacy,NL0 1,2,0.0,26.0,26.0
+4,NL0 10 0 solar,legacy,NL0 10,3,0.0,30.5,30.5
+4,NL0 10 0 CCGT,legacy,NL0 10,3,100.0,30.5,30.5
+5,NL0 0 CCGT,investable,NL0 0,1,20.714285714285715,20.5,20.5
+5,NL0 1 coal,investable,NL0 1,2,155.0,26.0,26.0
+5,NL0 10 nuclear,investable,NL0 10,3,22.5,30.5,30.5
+5,NL0 0 0 solar,legacy,NL0 0,1,0.0,20.5,20.5
+5,NL0 1 0 solar,legacy,NL0 1,2,0.0,26.0,26.0
+5,NL0 10 0 solar,legacy,NL0 10,3,0.0,30.5,30.5
+5,NL0 10 0 CCGT,legacy,NL0 10,3,100.0,30.5,30.5
+6,NL0 0 CCGT,investable,NL0 0,1,20.714285714285715,20.5,20.5
+6,NL0 1 coal,investable,NL0 1,2,155.0,26.0,26.0
+6,NL0 10 nuclear,investable,NL0 10,3,22.5,30.5,30.5
+6,NL0 0 0 solar,legacy,NL0 0,1,0.0,20.5,20.5
+6,NL0 1 0 solar,legacy,NL0 1,2,0.0,26.0,26.0
+6,NL0 10 0 solar,legacy,NL0 10,3,0.0,30.5,30.5
+6,NL0 10 0 CCGT,legacy,NL0 10,3,100.0,30.5,30.5

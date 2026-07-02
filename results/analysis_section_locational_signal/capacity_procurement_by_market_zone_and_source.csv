@@ -1,0 +1,17 @@
+scenario,case_study,design,market_zone,type,min_mw,median_mw,max_mw
+cs2_nl34_z1_sigma0,Case Study 2,Country-wide,1,investable,436.0076019714425,436.00760285112136,436.0076028544552
+cs2_nl34_z1_sigma0,Case Study 2,Country-wide,1,legacy,16286.7,16286.7,16286.7
+cs2_nl34_z3_sigma0,Case Study 2,Split,1,investable,0.0,0.0,3.436710065850083e-07
+cs2_nl34_z3_sigma0,Case Study 2,Split,1,legacy,7227.746702181195,7227.746702524866,7227.746702524866
+cs2_nl34_z3_sigma0,Case Study 2,Split,2,investable,0.0,0.0,0.0
+cs2_nl34_z3_sigma0,Case Study 2,Split,2,legacy,2560.309318529181,3480.0,4419.5
+cs2_nl34_z3_sigma0,Case Study 2,Split,3,investable,2400.1047541589955,2400.1047541590287,2400.1047541591006
+cs2_nl34_z3_sigma0,Case Study 2,Split,3,legacy,4601.0,4601.0,4601.0
+nl34_z1_sigma0,Case Study 1,Country-wide,1,investable,14634.507601973282,14634.507602851118,14634.507603111742
+nl34_z1_sigma0,Case Study 1,Country-wide,1,legacy,2088.2,2088.2,2088.2
+nl34_z3_sigma0,Case Study 1,Split,1,investable,6601.546702524866,6601.546702524866,6601.546702524867
+nl34_z3_sigma0,Case Study 1,Split,1,legacy,626.2,626.2,626.2
+nl34_z3_sigma0,Case Study 1,Split,2,investable,2421.309318529239,2421.309318529239,2421.309318529239
+nl34_z3_sigma0,Case Study 1,Split,2,legacy,139.0,139.0,139.0
+nl34_z3_sigma0,Case Study 1,Split,3,investable,5678.104754159029,5678.104754159029,5678.105211369158
+nl34_z3_sigma0,Case Study 1,Split,3,legacy,1322.9995427898693,1323.0,1323.0

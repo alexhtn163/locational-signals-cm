@@ -1,0 +1,11 @@
+scenario,case_study,design,sigma,runs,zero_grid_load_shedding_runs,nonzero_grid_load_shedding_runs
+nl34_z3_sigma0,Case Study 1,Split,0.0,80,50,30
+nl34_z3_sigma25,Case Study 1,Split,0.25,80,42,38
+nl34_z3_sigma50,Case Study 1,Split,0.5,80,2,78
+nl34_z3_sigma75,Case Study 1,Split,0.75,80,0,80
+nl34_z3_sigma100,Case Study 1,Split,1.0,80,0,80
+cs2_nl34_z3_sigma0,Case Study 2,Split,0.0,80,80,0
+cs2_nl34_z3_sigma25,Case Study 2,Split,0.25,80,80,0
+cs2_nl34_z3_sigma50,Case Study 2,Split,0.5,80,0,80
+cs2_nl34_z3_sigma75,Case Study 2,Split,0.75,80,0,80
+cs2_nl34_z3_sigma100,Case Study 2,Split,1.0,80,0,80

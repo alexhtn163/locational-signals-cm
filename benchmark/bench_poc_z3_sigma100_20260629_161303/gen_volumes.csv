@@ -1,0 +1,13 @@
+method,run,gen,vc,vc_group,r_up,r_down
+FullPD_max,1,NL0 0 CCGT,6.0,4,1.4210854715202004e-14,0.0
+FullPD_max,1,NL0 1 coal,5.0,3,0.0,257.5
+FullPD_max,1,NL0 10 nuclear,4.0,2,0.0,367.5
+FullPD_max,1,NL0 0 0 solar,0.01,1,0.0,75.0
+FullPD_max,1,NL0 1 0 solar,0.01,1,0.0,75.0
+FullPD_max,1,NL0 10 0 solar,0.01,1,0.0,75.0
+FullPD_min,1,NL0 0 CCGT,6.0,4,9.669554219913103,0.0
+FullPD_min,1,NL0 1 coal,5.0,3,52.74799448644585,9.669554219913103
+FullPD_min,1,NL0 10 nuclear,4.0,2,0.0,17.390851629295383
+FullPD_min,1,NL0 0 0 solar,0.01,1,0.0,40.357142857142854
+FullPD_min,1,NL0 1 0 solar,0.01,1,0.0,0.0
+FullPD_min,1,NL0 10 0 solar,0.01,1,0.0,0.0

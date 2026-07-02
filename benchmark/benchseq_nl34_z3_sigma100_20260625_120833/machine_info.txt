@@ -1,0 +1,13 @@
+timestamp          : 2026-06-25T12:08:48.880
+purpose            : sequential PD vs sequential MILP across PTDF-row densities
+scenario / sigma   : nl34_z3 / 1.0
+per_run_time_limit : 220.0 s  (IDENTICAL for both methods)
+both_directions    : true
+n_light/heavy/mid  : 2/2/1
+Gurobi Threads set : 8   (NonConvex=2 for SeqPD, as in main bench)
+hostname           : Alex
+julia version      : 1.12.5
+logical CPU cores  : 16
+CPU model          : 13th Gen Intel(R) Core(TM) i5-1340P
+total RAM (GB)     : 7.6
+(Gurobi's ACTUAL thread/core use is in each model's .log header)

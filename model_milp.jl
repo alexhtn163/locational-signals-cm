@@ -11,7 +11,7 @@ function build_milp_stage1(P; w = nothing, time_limit = 180.0,
         w = Dict(i => PTDF[L_first(P), gen_bus_idx[i]] for i in I)
     end
 
-    # ── K constants (your formulas; energy-side ones RESCALED by W_t) ────────
+    # ── K constants  ────────
     K_q   = maximum(cap[g] for g in IJ; init = 0.0)
     K_ls  = maximum(D_max[t] for t in T; init = 0.0)
     K_c   = maximum(cap[i] for i in I; init = 0.0)
@@ -25,16 +25,16 @@ function build_milp_stage1(P; w = nothing, time_limit = 180.0,
     K_slack_cm_bud_J = maximum(alpha[j]*cap[j] for j in J; init = 0.0)
     lambda_c_ub = maximum(fc[i] for i in I)
     P_cap_cm    = 2.0*lambda_c_ub
-    cap_up_ub   = VOLL*Wsum + lambda_c_ub                 # was VOLL*length(T); now W_t-scaled
-    K_mu_g_I    = VOLL*Wmax;  K_mu_g_J = VOLL*Wmax         # mu_g_up ~ W_t*(le-vc)
+    cap_up_ub   = VOLL*Wsum + lambda_c_ub                
+    K_mu_g_I    = VOLL*Wmax;  K_mu_g_J = VOLL*Wmax         
     K_mu_cm_bud_I = P_cap_cm; K_mu_cm_bud_J = P_cap_cm
     K_mu_cap    = cap_up_ub
     K_nu_c = P_cap_cm; K_phi = P_cap_cm; K_rho = P_cap_cm
-    K_stat_q_I = Wmax*(maximum(vc[i] for i in I; init=0.0) + VOLL)   # W_t-scaled
+    K_stat_q_I = Wmax*(maximum(vc[i] for i in I; init=0.0) + VOLL)   
     K_stat_q_J = Wmax*(maximum(vc[j] for j in J; init=0.0) + VOLL)
     K_stat_c   = maximum(fc[g] for g in IJ; init=0.0) + cap_up_ub + 2*lambda_c_ub
     K_stat_cm = P_cap_cm; K_stat_dem_c = P_cap_cm
-    K_stat_ls = VOLL*Wmax                                 # W_t*(VOLL-le)
+    K_stat_ls = VOLL*Wmax                               
 
     milp = direct_model(Gurobi.Optimizer(GRB_ENV))
     set_optimizer_attribute(milp, "TimeLimit",      time_limit)

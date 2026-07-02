@@ -1,0 +1,14 @@
+timestamp         : 2026-06-29T16:13:18.189
+scenario / sigma  : poc_z3 / 1.0
+time_limit (s)    : 3600.0
+Gurobi Threads set: 8
+hostname          : Alex
+julia version     : 1.12.5
+gurobi version    : 13.0.0
+logical CPU cores : 16
+CPU model         : 13th Gen Intel(R) Core(TM) i5-1340P
+total RAM (GB)    : 7.6
+free RAM  (GB)    : 0.4
+BLAS threads      : 8
+JULIA_NUM_THREADS : unset
+(Gurobi's ACTUAL thread/core use is in each model's .log header)

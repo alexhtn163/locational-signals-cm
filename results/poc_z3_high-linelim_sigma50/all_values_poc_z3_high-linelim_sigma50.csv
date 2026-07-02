@@ -1,0 +1,817 @@
+run_id,sigma,model,variable,value
+1,0.5,milp,ls[1],0.0
+1,0.5,milp,ls[2],0.0
+1,0.5,milp,ls[3],0.0
+1,0.5,milp,"q[1,NL0 0 CCGT]",0.0
+1,0.5,milp,"q[2,NL0 0 CCGT]",0.0
+1,0.5,milp,"q[3,NL0 0 CCGT]",0.0
+1,0.5,milp,"q[1,NL0 1 coal]",0.0
+1,0.5,milp,"q[2,NL0 1 coal]",95.0
+1,0.5,milp,"q[3,NL0 1 coal]",145.0
+1,0.5,milp,"q[1,NL0 10 nuclear]",125.0
+1,0.5,milp,"q[2,NL0 10 nuclear]",130.0
+1,0.5,milp,"q[3,NL0 10 nuclear]",130.0
+1,0.5,milp,"q[1,NL0 0 0 solar]",50.0
+1,0.5,milp,"q[2,NL0 0 0 solar]",0.0
+1,0.5,milp,"q[3,NL0 0 0 solar]",25.0
+1,0.5,milp,"q[1,NL0 1 0 solar]",25.0
+1,0.5,milp,"q[2,NL0 1 0 solar]",50.0
+1,0.5,milp,"q[3,NL0 1 0 solar]",0.0
+1,0.5,milp,"q[1,NL0 10 0 solar]",0.0
+1,0.5,milp,"q[2,NL0 10 0 solar]",25.0
+1,0.5,milp,"q[3,NL0 10 0 solar]",50.0
+1,0.5,milp,c[NL0 0 CCGT],15.714285714285714
+1,0.5,milp,c[NL0 1 coal],152.5
+1,0.5,milp,c[NL0 10 nuclear],130.0
+1,0.5,milp,c_cm_I[NL0 0 CCGT],15.714285714285714
+1,0.5,milp,c_cm_I[NL0 1 coal],152.5
+1,0.5,milp,c_cm_I[NL0 10 nuclear],130.0
+1,0.5,milp,c_cm_J[NL0 0 0 solar],0.0
+1,0.5,milp,c_cm_J[NL0 1 0 solar],0.0
+1,0.5,milp,c_cm_J[NL0 10 0 solar],0.0
+1,0.5,milp,c_dem[1],15.714285714285714
+1,0.5,milp,c_dem[2],152.5
+1,0.5,milp,c_dem[3],130.0
+1,0.5,milp,"f_trans[(1, 2)]",-2.5
+1,0.5,milp,"f_trans[(1, 3)]",-2.5
+1,0.5,milp,"f_trans[(2, 3)]",-5.0
+1,0.5,milp,lambda_e[1],4.0
+1,0.5,milp,lambda_e[2],5.0
+1,0.5,milp,lambda_e[3],5.0
+1,0.5,milp,lambda_c[1],22.5
+1,0.5,milp,lambda_c[2],30.0
+1,0.5,milp,lambda_c[3],35.5
+1,0.5,milp,lambda_c_sys,0.0
+1,0.5,milp,"mu_g_up_I[1,NL0 0 CCGT]",0.0
+1,0.5,milp,"mu_g_up_I[2,NL0 0 CCGT]",0.0
+1,0.5,milp,"mu_g_up_I[3,NL0 0 CCGT]",0.0
+1,0.5,milp,"mu_g_up_I[1,NL0 1 coal]",0.0
+1,0.5,milp,"mu_g_up_I[2,NL0 1 coal]",0.0
+1,0.5,milp,"mu_g_up_I[3,NL0 1 coal]",0.0
+1,0.5,milp,"mu_g_up_I[1,NL0 10 nuclear]",0.0
+1,0.5,milp,"mu_g_up_I[2,NL0 10 nuclear]",1.0
+1,0.5,milp,"mu_g_up_I[3,NL0 10 nuclear]",1.0
+1,0.5,milp,"mu_g_up_J[1,NL0 0 0 solar]",3.9899999999997817
+1,0.5,milp,"mu_g_up_J[2,NL0 0 0 solar]",4.989999999998872
+1,0.5,milp,"mu_g_up_J[3,NL0 0 0 solar]",4.989999999999782
+1,0.5,milp,"mu_g_up_J[1,NL0 1 0 solar]",3.9899999999997817
+1,0.5,milp,"mu_g_up_J[2,NL0 1 0 solar]",4.989999999999782
+1,0.5,milp,"mu_g_up_J[3,NL0 1 0 solar]",4.989999999998872
+1,0.5,milp,"mu_g_up_J[1,NL0 10 0 solar]",3.9899999999988722
+1,0.5,milp,"mu_g_up_J[2,NL0 10 0 solar]",4.989999999999782
+1,0.5,milp,"mu_g_up_J[3,NL0 10 0 solar]",4.989999999999782
+1,0.5,milp,mu_cm_bud_I[NL0 0 CCGT],22.5
+1,0.5,milp,mu_cm_bud_I[NL0 1 coal],30.0
+1,0.5,milp,mu_cm_bud_I[NL0 10 nuclear],35.5
+1,0.5,milp,mu_cm_bud_J[NL0 0 0 solar],22.5
+1,0.5,milp,mu_cm_bud_J[NL0 1 0 solar],30.0
+1,0.5,milp,mu_cm_bud_J[NL0 10 0 solar],35.5
+1,0.5,milp,mu_cap_up[NL0 0 CCGT],0.0
+1,0.5,milp,mu_cap_up[NL0 1 coal],0.0
+1,0.5,milp,mu_cap_up[NL0 10 nuclear],0.0
+1,0.5,milp,nu_c[1],22.5
+1,0.5,milp,nu_c[2],30.0
+1,0.5,milp,nu_c[3],35.5
+1,0.5,milp,"phi_lo[(1, 2)]",7.5
+1,0.5,milp,"phi_lo[(1, 3)]",13.0
+1,0.5,milp,"phi_lo[(2, 3)]",5.5
+1,0.5,milp,"phi_hi[(1, 2)]",0.0
+1,0.5,milp,"phi_hi[(1, 3)]",0.0
+1,0.5,milp,"phi_hi[(2, 3)]",0.0
+1,0.5,milp,rho[1],0.0
+1,0.5,milp,rho[2],0.0
+1,0.5,milp,rho[3],0.0
+1,0.5,rd,"r_up[1,NL0 0 CCGT]",0.0
+1,0.5,rd,"r_up[2,NL0 0 CCGT]",0.0
+1,0.5,rd,"r_up[3,NL0 0 CCGT]",0.0
+1,0.5,rd,"r_up[1,NL0 1 coal]",0.0
+1,0.5,rd,"r_up[2,NL0 1 coal]",0.0
+1,0.5,rd,"r_up[3,NL0 1 coal]",0.0
+1,0.5,rd,"r_up[1,NL0 10 nuclear]",0.0
+1,0.5,rd,"r_up[2,NL0 10 nuclear]",0.0
+1,0.5,rd,"r_up[3,NL0 10 nuclear]",0.0
+1,0.5,rd,"r_up[1,NL0 0 0 solar]",0.0
+1,0.5,rd,"r_up[2,NL0 0 0 solar]",0.0
+1,0.5,rd,"r_up[3,NL0 0 0 solar]",0.0
+1,0.5,rd,"r_up[1,NL0 1 0 solar]",0.0
+1,0.5,rd,"r_up[2,NL0 1 0 solar]",0.0
+1,0.5,rd,"r_up[3,NL0 1 0 solar]",0.0
+1,0.5,rd,"r_up[1,NL0 10 0 solar]",0.0
+1,0.5,rd,"r_up[2,NL0 10 0 solar]",0.0
+1,0.5,rd,"r_up[3,NL0 10 0 solar]",0.0
+1,0.5,rd,"r_down[1,NL0 0 CCGT]",0.0
+1,0.5,rd,"r_down[2,NL0 0 CCGT]",0.0
+1,0.5,rd,"r_down[3,NL0 0 CCGT]",0.0
+1,0.5,rd,"r_down[1,NL0 1 coal]",0.0
+1,0.5,rd,"r_down[2,NL0 1 coal]",0.0
+1,0.5,rd,"r_down[3,NL0 1 coal]",0.0
+1,0.5,rd,"r_down[1,NL0 10 nuclear]",0.0
+1,0.5,rd,"r_down[2,NL0 10 nuclear]",0.0
+1,0.5,rd,"r_down[3,NL0 10 nuclear]",0.0
+1,0.5,rd,"r_down[1,NL0 0 0 solar]",0.0
+1,0.5,rd,"r_down[2,NL0 0 0 solar]",0.0
+1,0.5,rd,"r_down[3,NL0 0 0 solar]",0.0
+1,0.5,rd,"r_down[1,NL0 1 0 solar]",0.0
+1,0.5,rd,"r_down[2,NL0 1 0 solar]",0.0
+1,0.5,rd,"r_down[3,NL0 1 0 solar]",0.0
+1,0.5,rd,"r_down[1,NL0 10 0 solar]",0.0
+1,0.5,rd,"r_down[2,NL0 10 0 solar]",0.0
+1,0.5,rd,"r_down[3,NL0 10 0 solar]",0.0
+1,0.5,rd,"p_flow[1,1]",28.82381991306427
+1,0.5,rd,"p_flow[2,1]",-7.553828666872013
+1,0.5,rd,"p_flow[3,1]",4.87023164048328
+1,0.5,rd,"p_flow[1,2]",-31.89046580122144
+1,0.5,rd,"p_flow[2,2]",8.874742761699432
+1,0.5,rd,"p_flow[3,2]",-0.12976835951671983
+1,0.5,rd,"p_flow[1,3]",14.033322944078606
+1,0.5,rd,"p_flow[2,3]",-3.16045704741368
+1,0.5,rd,"p_flow[3,3]",7.629768359516748
+1,0.5,rd,"curt[1,1]",0.0
+1,0.5,rd,"curt[2,1]",0.0
+1,0.5,rd,"curt[3,1]",0.0
+1,0.5,rd,"curt[1,2]",0.0
+1,0.5,rd,"curt[2,2]",0.0
+1,0.5,rd,"curt[3,2]",0.0
+1,0.5,rd,"curt[1,3]",0.0
+1,0.5,rd,"curt[2,3]",0.0
+1,0.5,rd,"curt[3,3]",0.0
+2,0.5,milp,ls[1],0.0
+2,0.5,milp,ls[2],0.0
+2,0.5,milp,ls[3],0.0
+2,0.5,milp,"q[1,NL0 0 CCGT]",0.0
+2,0.5,milp,"q[2,NL0 0 CCGT]",0.0
+2,0.5,milp,"q[3,NL0 0 CCGT]",0.0
+2,0.5,milp,"q[1,NL0 1 coal]",0.0
+2,0.5,milp,"q[2,NL0 1 coal]",95.0
+2,0.5,milp,"q[3,NL0 1 coal]",145.0
+2,0.5,milp,"q[1,NL0 10 nuclear]",125.0
+2,0.5,milp,"q[2,NL0 10 nuclear]",130.0
+2,0.5,milp,"q[3,NL0 10 nuclear]",130.0
+2,0.5,milp,"q[1,NL0 0 0 solar]",50.0
+2,0.5,milp,"q[2,NL0 0 0 solar]",0.0
+2,0.5,milp,"q[3,NL0 0 0 solar]",25.0
+2,0.5,milp,"q[1,NL0 1 0 solar]",25.0
+2,0.5,milp,"q[2,NL0 1 0 solar]",50.0
+2,0.5,milp,"q[3,NL0 1 0 solar]",0.0
+2,0.5,milp,"q[1,NL0 10 0 solar]",0.0
+2,0.5,milp,"q[2,NL0 10 0 solar]",25.0
+2,0.5,milp,"q[3,NL0 10 0 solar]",50.0
+2,0.5,milp,c[NL0 0 CCGT],15.714285714285714
+2,0.5,milp,c[NL0 1 coal],152.5
+2,0.5,milp,c[NL0 10 nuclear],130.0
+2,0.5,milp,c_cm_I[NL0 0 CCGT],15.714285714285714
+2,0.5,milp,c_cm_I[NL0 1 coal],152.5
+2,0.5,milp,c_cm_I[NL0 10 nuclear],130.0
+2,0.5,milp,c_cm_J[NL0 0 0 solar],0.0
+2,0.5,milp,c_cm_J[NL0 1 0 solar],0.0
+2,0.5,milp,c_cm_J[NL0 10 0 solar],0.0
+2,0.5,milp,c_dem[1],15.714285714285714
+2,0.5,milp,c_dem[2],152.5
+2,0.5,milp,c_dem[3],130.0
+2,0.5,milp,"f_trans[(1, 2)]",-2.5
+2,0.5,milp,"f_trans[(1, 3)]",-2.5
+2,0.5,milp,"f_trans[(2, 3)]",-5.0
+2,0.5,milp,lambda_e[1],4.0
+2,0.5,milp,lambda_e[2],5.0
+2,0.5,milp,lambda_e[3],5.0
+2,0.5,milp,lambda_c[1],22.5
+2,0.5,milp,lambda_c[2],30.0
+2,0.5,milp,lambda_c[3],35.5
+2,0.5,milp,lambda_c_sys,0.0
+2,0.5,milp,"mu_g_up_I[1,NL0 0 CCGT]",0.0
+2,0.5,milp,"mu_g_up_I[2,NL0 0 CCGT]",0.0
+2,0.5,milp,"mu_g_up_I[3,NL0 0 CCGT]",0.0
+2,0.5,milp,"mu_g_up_I[1,NL0 1 coal]",0.0
+2,0.5,milp,"mu_g_up_I[2,NL0 1 coal]",0.0
+2,0.5,milp,"mu_g_up_I[3,NL0 1 coal]",0.0
+2,0.5,milp,"mu_g_up_I[1,NL0 10 nuclear]",0.0
+2,0.5,milp,"mu_g_up_I[2,NL0 10 nuclear]",1.0
+2,0.5,milp,"mu_g_up_I[3,NL0 10 nuclear]",1.0
+2,0.5,milp,"mu_g_up_J[1,NL0 0 0 solar]",3.9899999999997817
+2,0.5,milp,"mu_g_up_J[2,NL0 0 0 solar]",4.989999999998872
+2,0.5,milp,"mu_g_up_J[3,NL0 0 0 solar]",4.989999999999782
+2,0.5,milp,"mu_g_up_J[1,NL0 1 0 solar]",3.9899999999997817
+2,0.5,milp,"mu_g_up_J[2,NL0 1 0 solar]",4.989999999999782
+2,0.5,milp,"mu_g_up_J[3,NL0 1 0 solar]",4.989999999998872
+2,0.5,milp,"mu_g_up_J[1,NL0 10 0 solar]",3.9899999999988722
+2,0.5,milp,"mu_g_up_J[2,NL0 10 0 solar]",4.989999999999782
+2,0.5,milp,"mu_g_up_J[3,NL0 10 0 solar]",4.989999999999782
+2,0.5,milp,mu_cm_bud_I[NL0 0 CCGT],22.5
+2,0.5,milp,mu_cm_bud_I[NL0 1 coal],30.0
+2,0.5,milp,mu_cm_bud_I[NL0 10 nuclear],35.5
+2,0.5,milp,mu_cm_bud_J[NL0 0 0 solar],22.5
+2,0.5,milp,mu_cm_bud_J[NL0 1 0 solar],30.0
+2,0.5,milp,mu_cm_bud_J[NL0 10 0 solar],35.5
+2,0.5,milp,mu_cap_up[NL0 0 CCGT],0.0
+2,0.5,milp,mu_cap_up[NL0 1 coal],0.0
+2,0.5,milp,mu_cap_up[NL0 10 nuclear],0.0
+2,0.5,milp,nu_c[1],22.5
+2,0.5,milp,nu_c[2],30.0
+2,0.5,milp,nu_c[3],35.5
+2,0.5,milp,"phi_lo[(1, 2)]",7.5
+2,0.5,milp,"phi_lo[(1, 3)]",13.0
+2,0.5,milp,"phi_lo[(2, 3)]",5.5
+2,0.5,milp,"phi_hi[(1, 2)]",0.0
+2,0.5,milp,"phi_hi[(1, 3)]",0.0
+2,0.5,milp,"phi_hi[(2, 3)]",0.0
+2,0.5,milp,rho[1],0.0
+2,0.5,milp,rho[2],0.0
+2,0.5,milp,rho[3],0.0
+2,0.5,rd,"r_up[1,NL0 0 CCGT]",0.0
+2,0.5,rd,"r_up[2,NL0 0 CCGT]",0.0
+2,0.5,rd,"r_up[3,NL0 0 CCGT]",0.0
+2,0.5,rd,"r_up[1,NL0 1 coal]",0.0
+2,0.5,rd,"r_up[2,NL0 1 coal]",0.0
+2,0.5,rd,"r_up[3,NL0 1 coal]",0.0
+2,0.5,rd,"r_up[1,NL0 10 nuclear]",0.0
+2,0.5,rd,"r_up[2,NL0 10 nuclear]",0.0
+2,0.5,rd,"r_up[3,NL0 10 nuclear]",0.0
+2,0.5,rd,"r_up[1,NL0 0 0 solar]",0.0
+2,0.5,rd,"r_up[2,NL0 0 0 solar]",0.0
+2,0.5,rd,"r_up[3,NL0 0 0 solar]",0.0
+2,0.5,rd,"r_up[1,NL0 1 0 solar]",0.0
+2,0.5,rd,"r_up[2,NL0 1 0 solar]",0.0
+2,0.5,rd,"r_up[3,NL0 1 0 solar]",0.0
+2,0.5,rd,"r_up[1,NL0 10 0 solar]",0.0
+2,0.5,rd,"r_up[2,NL0 10 0 solar]",0.0
+2,0.5,rd,"r_up[3,NL0 10 0 solar]",0.0
+2,0.5,rd,"r_down[1,NL0 0 CCGT]",0.0
+2,0.5,rd,"r_down[2,NL0 0 CCGT]",0.0
+2,0.5,rd,"r_down[3,NL0 0 CCGT]",0.0
+2,0.5,rd,"r_down[1,NL0 1 coal]",0.0
+2,0.5,rd,"r_down[2,NL0 1 coal]",0.0
+2,0.5,rd,"r_down[3,NL0 1 coal]",0.0
+2,0.5,rd,"r_down[1,NL0 10 nuclear]",0.0
+2,0.5,rd,"r_down[2,NL0 10 nuclear]",0.0
+2,0.5,rd,"r_down[3,NL0 10 nuclear]",0.0
+2,0.5,rd,"r_down[1,NL0 0 0 solar]",0.0
+2,0.5,rd,"r_down[2,NL0 0 0 solar]",0.0
+2,0.5,rd,"r_down[3,NL0 0 0 solar]",0.0
+2,0.5,rd,"r_down[1,NL0 1 0 solar]",0.0
+2,0.5,rd,"r_down[2,NL0 1 0 solar]",0.0
+2,0.5,rd,"r_down[3,NL0 1 0 solar]",0.0
+2,0.5,rd,"r_down[1,NL0 10 0 solar]",0.0
+2,0.5,rd,"r_down[2,NL0 10 0 solar]",0.0
+2,0.5,rd,"r_down[3,NL0 10 0 solar]",0.0
+2,0.5,rd,"p_flow[1,1]",28.82381991306427
+2,0.5,rd,"p_flow[2,1]",-7.553828666872013
+2,0.5,rd,"p_flow[3,1]",4.87023164048328
+2,0.5,rd,"p_flow[1,2]",-31.89046580122144
+2,0.5,rd,"p_flow[2,2]",8.874742761699432
+2,0.5,rd,"p_flow[3,2]",-0.12976835951671983
+2,0.5,rd,"p_flow[1,3]",14.033322944078606
+2,0.5,rd,"p_flow[2,3]",-3.16045704741368
+2,0.5,rd,"p_flow[3,3]",7.629768359516748
+2,0.5,rd,"curt[1,1]",0.0
+2,0.5,rd,"curt[2,1]",0.0
+2,0.5,rd,"curt[3,1]",0.0
+2,0.5,rd,"curt[1,2]",0.0
+2,0.5,rd,"curt[2,2]",0.0
+2,0.5,rd,"curt[3,2]",0.0
+2,0.5,rd,"curt[1,3]",0.0
+2,0.5,rd,"curt[2,3]",0.0
+2,0.5,rd,"curt[3,3]",0.0
+3,0.5,milp,ls[1],0.0
+3,0.5,milp,ls[2],0.0
+3,0.5,milp,ls[3],0.0
+3,0.5,milp,"q[1,NL0 0 CCGT]",0.0
+3,0.5,milp,"q[2,NL0 0 CCGT]",0.0
+3,0.5,milp,"q[3,NL0 0 CCGT]",0.0
+3,0.5,milp,"q[1,NL0 1 coal]",0.0
+3,0.5,milp,"q[2,NL0 1 coal]",95.0
+3,0.5,milp,"q[3,NL0 1 coal]",145.0
+3,0.5,milp,"q[1,NL0 10 nuclear]",125.0
+3,0.5,milp,"q[2,NL0 10 nuclear]",130.0
+3,0.5,milp,"q[3,NL0 10 nuclear]",130.0
+3,0.5,milp,"q[1,NL0 0 0 solar]",50.0
+3,0.5,milp,"q[2,NL0 0 0 solar]",0.0
+3,0.5,milp,"q[3,NL0 0 0 solar]",25.0
+3,0.5,milp,"q[1,NL0 1 0 solar]",25.0
+3,0.5,milp,"q[2,NL0 1 0 solar]",50.0
+3,0.5,milp,"q[3,NL0 1 0 solar]",0.0
+3,0.5,milp,"q[1,NL0 10 0 solar]",0.0
+3,0.5,milp,"q[2,NL0 10 0 solar]",25.0
+3,0.5,milp,"q[3,NL0 10 0 solar]",50.0
+3,0.5,milp,c[NL0 0 CCGT],15.714285714285714
+3,0.5,milp,c[NL0 1 coal],152.5
+3,0.5,milp,c[NL0 10 nuclear],130.0
+3,0.5,milp,c_cm_I[NL0 0 CCGT],15.714285714285714
+3,0.5,milp,c_cm_I[NL0 1 coal],152.5
+3,0.5,milp,c_cm_I[NL0 10 nuclear],130.0
+3,0.5,milp,c_cm_J[NL0 0 0 solar],0.0
+3,0.5,milp,c_cm_J[NL0 1 0 solar],0.0
+3,0.5,milp,c_cm_J[NL0 10 0 solar],0.0
+3,0.5,milp,c_dem[1],15.714285714285714
+3,0.5,milp,c_dem[2],152.5
+3,0.5,milp,c_dem[3],130.0
+3,0.5,milp,"f_trans[(1, 2)]",-2.5
+3,0.5,milp,"f_trans[(1, 3)]",-2.5
+3,0.5,milp,"f_trans[(2, 3)]",-5.0
+3,0.5,milp,lambda_e[1],4.0
+3,0.5,milp,lambda_e[2],5.0
+3,0.5,milp,lambda_e[3],5.0
+3,0.5,milp,lambda_c[1],22.5
+3,0.5,milp,lambda_c[2],30.0
+3,0.5,milp,lambda_c[3],35.5
+3,0.5,milp,lambda_c_sys,0.0
+3,0.5,milp,"mu_g_up_I[1,NL0 0 CCGT]",0.0
+3,0.5,milp,"mu_g_up_I[2,NL0 0 CCGT]",0.0
+3,0.5,milp,"mu_g_up_I[3,NL0 0 CCGT]",0.0
+3,0.5,milp,"mu_g_up_I[1,NL0 1 coal]",0.0
+3,0.5,milp,"mu_g_up_I[2,NL0 1 coal]",0.0
+3,0.5,milp,"mu_g_up_I[3,NL0 1 coal]",0.0
+3,0.5,milp,"mu_g_up_I[1,NL0 10 nuclear]",0.0
+3,0.5,milp,"mu_g_up_I[2,NL0 10 nuclear]",1.0
+3,0.5,milp,"mu_g_up_I[3,NL0 10 nuclear]",1.0
+3,0.5,milp,"mu_g_up_J[1,NL0 0 0 solar]",3.9899999999997817
+3,0.5,milp,"mu_g_up_J[2,NL0 0 0 solar]",4.989999999998872
+3,0.5,milp,"mu_g_up_J[3,NL0 0 0 solar]",4.989999999999782
+3,0.5,milp,"mu_g_up_J[1,NL0 1 0 solar]",3.9899999999997817
+3,0.5,milp,"mu_g_up_J[2,NL0 1 0 solar]",4.989999999999782
+3,0.5,milp,"mu_g_up_J[3,NL0 1 0 solar]",4.989999999998872
+3,0.5,milp,"mu_g_up_J[1,NL0 10 0 solar]",3.9899999999988722
+3,0.5,milp,"mu_g_up_J[2,NL0 10 0 solar]",4.989999999999782
+3,0.5,milp,"mu_g_up_J[3,NL0 10 0 solar]",4.989999999999782
+3,0.5,milp,mu_cm_bud_I[NL0 0 CCGT],22.5
+3,0.5,milp,mu_cm_bud_I[NL0 1 coal],30.0
+3,0.5,milp,mu_cm_bud_I[NL0 10 nuclear],35.5
+3,0.5,milp,mu_cm_bud_J[NL0 0 0 solar],22.5
+3,0.5,milp,mu_cm_bud_J[NL0 1 0 solar],30.0
+3,0.5,milp,mu_cm_bud_J[NL0 10 0 solar],35.5
+3,0.5,milp,mu_cap_up[NL0 0 CCGT],0.0
+3,0.5,milp,mu_cap_up[NL0 1 coal],0.0
+3,0.5,milp,mu_cap_up[NL0 10 nuclear],0.0
+3,0.5,milp,nu_c[1],22.5
+3,0.5,milp,nu_c[2],30.0
+3,0.5,milp,nu_c[3],35.5
+3,0.5,milp,"phi_lo[(1, 2)]",7.5
+3,0.5,milp,"phi_lo[(1, 3)]",13.0
+3,0.5,milp,"phi_lo[(2, 3)]",5.5
+3,0.5,milp,"phi_hi[(1, 2)]",0.0
+3,0.5,milp,"phi_hi[(1, 3)]",0.0
+3,0.5,milp,"phi_hi[(2, 3)]",0.0
+3,0.5,milp,rho[1],0.0
+3,0.5,milp,rho[2],0.0
+3,0.5,milp,rho[3],0.0
+3,0.5,rd,"r_up[1,NL0 0 CCGT]",0.0
+3,0.5,rd,"r_up[2,NL0 0 CCGT]",0.0
+3,0.5,rd,"r_up[3,NL0 0 CCGT]",0.0
+3,0.5,rd,"r_up[1,NL0 1 coal]",0.0
+3,0.5,rd,"r_up[2,NL0 1 coal]",0.0
+3,0.5,rd,"r_up[3,NL0 1 coal]",0.0
+3,0.5,rd,"r_up[1,NL0 10 nuclear]",0.0
+3,0.5,rd,"r_up[2,NL0 10 nuclear]",0.0
+3,0.5,rd,"r_up[3,NL0 10 nuclear]",0.0
+3,0.5,rd,"r_up[1,NL0 0 0 solar]",0.0
+3,0.5,rd,"r_up[2,NL0 0 0 solar]",0.0
+3,0.5,rd,"r_up[3,NL0 0 0 solar]",0.0
+3,0.5,rd,"r_up[1,NL0 1 0 solar]",0.0
+3,0.5,rd,"r_up[2,NL0 1 0 solar]",0.0
+3,0.5,rd,"r_up[3,NL0 1 0 solar]",0.0
+3,0.5,rd,"r_up[1,NL0 10 0 solar]",0.0
+3,0.5,rd,"r_up[2,NL0 10 0 solar]",0.0
+3,0.5,rd,"r_up[3,NL0 10 0 solar]",0.0
+3,0.5,rd,"r_down[1,NL0 0 CCGT]",0.0
+3,0.5,rd,"r_down[2,NL0 0 CCGT]",0.0
+3,0.5,rd,"r_down[3,NL0 0 CCGT]",0.0
+3,0.5,rd,"r_down[1,NL0 1 coal]",0.0
+3,0.5,rd,"r_down[2,NL0 1 coal]",0.0
+3,0.5,rd,"r_down[3,NL0 1 coal]",0.0
+3,0.5,rd,"r_down[1,NL0 10 nuclear]",0.0
+3,0.5,rd,"r_down[2,NL0 10 nuclear]",0.0
+3,0.5,rd,"r_down[3,NL0 10 nuclear]",0.0
+3,0.5,rd,"r_down[1,NL0 0 0 solar]",0.0
+3,0.5,rd,"r_down[2,NL0 0 0 solar]",0.0
+3,0.5,rd,"r_down[3,NL0 0 0 solar]",0.0
+3,0.5,rd,"r_down[1,NL0 1 0 solar]",0.0
+3,0.5,rd,"r_down[2,NL0 1 0 solar]",0.0
+3,0.5,rd,"r_down[3,NL0 1 0 solar]",0.0
+3,0.5,rd,"r_down[1,NL0 10 0 solar]",0.0
+3,0.5,rd,"r_down[2,NL0 10 0 solar]",0.0
+3,0.5,rd,"r_down[3,NL0 10 0 solar]",0.0
+3,0.5,rd,"p_flow[1,1]",28.82381991306427
+3,0.5,rd,"p_flow[2,1]",-7.553828666872013
+3,0.5,rd,"p_flow[3,1]",4.87023164048328
+3,0.5,rd,"p_flow[1,2]",-31.89046580122144
+3,0.5,rd,"p_flow[2,2]",8.874742761699432
+3,0.5,rd,"p_flow[3,2]",-0.12976835951671983
+3,0.5,rd,"p_flow[1,3]",14.033322944078606
+3,0.5,rd,"p_flow[2,3]",-3.16045704741368
+3,0.5,rd,"p_flow[3,3]",7.629768359516748
+3,0.5,rd,"curt[1,1]",0.0
+3,0.5,rd,"curt[2,1]",0.0
+3,0.5,rd,"curt[3,1]",0.0
+3,0.5,rd,"curt[1,2]",0.0
+3,0.5,rd,"curt[2,2]",0.0
+3,0.5,rd,"curt[3,2]",0.0
+3,0.5,rd,"curt[1,3]",0.0
+3,0.5,rd,"curt[2,3]",0.0
+3,0.5,rd,"curt[3,3]",0.0
+4,0.5,milp,ls[1],0.0
+4,0.5,milp,ls[2],0.0
+4,0.5,milp,ls[3],0.0
+4,0.5,milp,"q[1,NL0 0 CCGT]",0.0
+4,0.5,milp,"q[2,NL0 0 CCGT]",0.0
+4,0.5,milp,"q[3,NL0 0 CCGT]",0.0
+4,0.5,milp,"q[1,NL0 1 coal]",0.0
+4,0.5,milp,"q[2,NL0 1 coal]",95.0
+4,0.5,milp,"q[3,NL0 1 coal]",145.0
+4,0.5,milp,"q[1,NL0 10 nuclear]",125.0
+4,0.5,milp,"q[2,NL0 10 nuclear]",130.0
+4,0.5,milp,"q[3,NL0 10 nuclear]",130.0
+4,0.5,milp,"q[1,NL0 0 0 solar]",50.0
+4,0.5,milp,"q[2,NL0 0 0 solar]",0.0
+4,0.5,milp,"q[3,NL0 0 0 solar]",25.0
+4,0.5,milp,"q[1,NL0 1 0 solar]",25.0
+4,0.5,milp,"q[2,NL0 1 0 solar]",50.0
+4,0.5,milp,"q[3,NL0 1 0 solar]",0.0
+4,0.5,milp,"q[1,NL0 10 0 solar]",0.0
+4,0.5,milp,"q[2,NL0 10 0 solar]",25.0
+4,0.5,milp,"q[3,NL0 10 0 solar]",50.0
+4,0.5,milp,c[NL0 0 CCGT],15.714285714285714
+4,0.5,milp,c[NL0 1 coal],152.5
+4,0.5,milp,c[NL0 10 nuclear],130.0
+4,0.5,milp,c_cm_I[NL0 0 CCGT],15.714285714285714
+4,0.5,milp,c_cm_I[NL0 1 coal],152.5
+4,0.5,milp,c_cm_I[NL0 10 nuclear],130.0
+4,0.5,milp,c_cm_J[NL0 0 0 solar],0.0
+4,0.5,milp,c_cm_J[NL0 1 0 solar],0.0
+4,0.5,milp,c_cm_J[NL0 10 0 solar],0.0
+4,0.5,milp,c_dem[1],15.714285714285714
+4,0.5,milp,c_dem[2],152.5
+4,0.5,milp,c_dem[3],130.0
+4,0.5,milp,"f_trans[(1, 2)]",-2.5
+4,0.5,milp,"f_trans[(1, 3)]",-2.5
+4,0.5,milp,"f_trans[(2, 3)]",-5.0
+4,0.5,milp,lambda_e[1],4.0
+4,0.5,milp,lambda_e[2],5.0
+4,0.5,milp,lambda_e[3],5.0
+4,0.5,milp,lambda_c[1],22.5
+4,0.5,milp,lambda_c[2],30.0
+4,0.5,milp,lambda_c[3],35.5
+4,0.5,milp,lambda_c_sys,0.0
+4,0.5,milp,"mu_g_up_I[1,NL0 0 CCGT]",0.0
+4,0.5,milp,"mu_g_up_I[2,NL0 0 CCGT]",0.0
+4,0.5,milp,"mu_g_up_I[3,NL0 0 CCGT]",0.0
+4,0.5,milp,"mu_g_up_I[1,NL0 1 coal]",0.0
+4,0.5,milp,"mu_g_up_I[2,NL0 1 coal]",0.0
+4,0.5,milp,"mu_g_up_I[3,NL0 1 coal]",0.0
+4,0.5,milp,"mu_g_up_I[1,NL0 10 nuclear]",0.0
+4,0.5,milp,"mu_g_up_I[2,NL0 10 nuclear]",1.0
+4,0.5,milp,"mu_g_up_I[3,NL0 10 nuclear]",1.0
+4,0.5,milp,"mu_g_up_J[1,NL0 0 0 solar]",3.9899999999997817
+4,0.5,milp,"mu_g_up_J[2,NL0 0 0 solar]",4.989999999998872
+4,0.5,milp,"mu_g_up_J[3,NL0 0 0 solar]",4.989999999999782
+4,0.5,milp,"mu_g_up_J[1,NL0 1 0 solar]",3.9899999999997817
+4,0.5,milp,"mu_g_up_J[2,NL0 1 0 solar]",4.989999999999782
+4,0.5,milp,"mu_g_up_J[3,NL0 1 0 solar]",4.989999999998872
+4,0.5,milp,"mu_g_up_J[1,NL0 10 0 solar]",3.9899999999988722
+4,0.5,milp,"mu_g_up_J[2,NL0 10 0 solar]",4.989999999999782
+4,0.5,milp,"mu_g_up_J[3,NL0 10 0 solar]",4.989999999999782
+4,0.5,milp,mu_cm_bud_I[NL0 0 CCGT],22.5
+4,0.5,milp,mu_cm_bud_I[NL0 1 coal],30.0
+4,0.5,milp,mu_cm_bud_I[NL0 10 nuclear],35.5
+4,0.5,milp,mu_cm_bud_J[NL0 0 0 solar],22.5
+4,0.5,milp,mu_cm_bud_J[NL0 1 0 solar],30.0
+4,0.5,milp,mu_cm_bud_J[NL0 10 0 solar],35.5
+4,0.5,milp,mu_cap_up[NL0 0 CCGT],0.0
+4,0.5,milp,mu_cap_up[NL0 1 coal],0.0
+4,0.5,milp,mu_cap_up[NL0 10 nuclear],0.0
+4,0.5,milp,nu_c[1],22.5
+4,0.5,milp,nu_c[2],30.0
+4,0.5,milp,nu_c[3],35.5
+4,0.5,milp,"phi_lo[(1, 2)]",7.5
+4,0.5,milp,"phi_lo[(1, 3)]",13.0
+4,0.5,milp,"phi_lo[(2, 3)]",5.5
+4,0.5,milp,"phi_hi[(1, 2)]",0.0
+4,0.5,milp,"phi_hi[(1, 3)]",0.0
+4,0.5,milp,"phi_hi[(2, 3)]",0.0
+4,0.5,milp,rho[1],0.0
+4,0.5,milp,rho[2],0.0
+4,0.5,milp,rho[3],0.0
+4,0.5,rd,"r_up[1,NL0 0 CCGT]",0.0
+4,0.5,rd,"r_up[2,NL0 0 CCGT]",0.0
+4,0.5,rd,"r_up[3,NL0 0 CCGT]",0.0
+4,0.5,rd,"r_up[1,NL0 1 coal]",0.0
+4,0.5,rd,"r_up[2,NL0 1 coal]",0.0
+4,0.5,rd,"r_up[3,NL0 1 coal]",0.0
+4,0.5,rd,"r_up[1,NL0 10 nuclear]",0.0
+4,0.5,rd,"r_up[2,NL0 10 nuclear]",0.0
+4,0.5,rd,"r_up[3,NL0 10 nuclear]",0.0
+4,0.5,rd,"r_up[1,NL0 0 0 solar]",0.0
+4,0.5,rd,"r_up[2,NL0 0 0 solar]",0.0
+4,0.5,rd,"r_up[3,NL0 0 0 solar]",0.0
+4,0.5,rd,"r_up[1,NL0 1 0 solar]",0.0
+4,0.5,rd,"r_up[2,NL0 1 0 solar]",0.0
+4,0.5,rd,"r_up[3,NL0 1 0 solar]",0.0
+4,0.5,rd,"r_up[1,NL0 10 0 solar]",0.0
+4,0.5,rd,"r_up[2,NL0 10 0 solar]",0.0
+4,0.5,rd,"r_up[3,NL0 10 0 solar]",0.0
+4,0.5,rd,"r_down[1,NL0 0 CCGT]",0.0
+4,0.5,rd,"r_down[2,NL0 0 CCGT]",0.0
+4,0.5,rd,"r_down[3,NL0 0 CCGT]",0.0
+4,0.5,rd,"r_down[1,NL0 1 coal]",0.0
+4,0.5,rd,"r_down[2,NL0 1 coal]",0.0
+4,0.5,rd,"r_down[3,NL0 1 coal]",0.0
+4,0.5,rd,"r_down[1,NL0 10 nuclear]",0.0
+4,0.5,rd,"r_down[2,NL0 10 nuclear]",0.0
+4,0.5,rd,"r_down[3,NL0 10 nuclear]",0.0
+4,0.5,rd,"r_down[1,NL0 0 0 solar]",0.0
+4,0.5,rd,"r_down[2,NL0 0 0 solar]",0.0
+4,0.5,rd,"r_down[3,NL0 0 0 solar]",0.0
+4,0.5,rd,"r_down[1,NL0 1 0 solar]",0.0
+4,0.5,rd,"r_down[2,NL0 1 0 solar]",0.0
+4,0.5,rd,"r_down[3,NL0 1 0 solar]",0.0
+4,0.5,rd,"r_down[1,NL0 10 0 solar]",0.0
+4,0.5,rd,"r_down[2,NL0 10 0 solar]",0.0
+4,0.5,rd,"r_down[3,NL0 10 0 solar]",0.0
+4,0.5,rd,"p_flow[1,1]",28.82381991306427
+4,0.5,rd,"p_flow[2,1]",-7.553828666872013
+4,0.5,rd,"p_flow[3,1]",4.87023164048328
+4,0.5,rd,"p_flow[1,2]",-31.89046580122144
+4,0.5,rd,"p_flow[2,2]",8.874742761699432
+4,0.5,rd,"p_flow[3,2]",-0.12976835951671983
+4,0.5,rd,"p_flow[1,3]",14.033322944078606
+4,0.5,rd,"p_flow[2,3]",-3.16045704741368
+4,0.5,rd,"p_flow[3,3]",7.629768359516748
+4,0.5,rd,"curt[1,1]",0.0
+4,0.5,rd,"curt[2,1]",0.0
+4,0.5,rd,"curt[3,1]",0.0
+4,0.5,rd,"curt[1,2]",0.0
+4,0.5,rd,"curt[2,2]",0.0
+4,0.5,rd,"curt[3,2]",0.0
+4,0.5,rd,"curt[1,3]",0.0
+4,0.5,rd,"curt[2,3]",0.0
+4,0.5,rd,"curt[3,3]",0.0
+5,0.5,milp,ls[1],0.0
+5,0.5,milp,ls[2],0.0
+5,0.5,milp,ls[3],0.0
+5,0.5,milp,"q[1,NL0 0 CCGT]",0.0
+5,0.5,milp,"q[2,NL0 0 CCGT]",0.0
+5,0.5,milp,"q[3,NL0 0 CCGT]",0.0
+5,0.5,milp,"q[1,NL0 1 coal]",0.0
+5,0.5,milp,"q[2,NL0 1 coal]",95.0
+5,0.5,milp,"q[3,NL0 1 coal]",145.0
+5,0.5,milp,"q[1,NL0 10 nuclear]",125.0
+5,0.5,milp,"q[2,NL0 10 nuclear]",130.0
+5,0.5,milp,"q[3,NL0 10 nuclear]",130.0
+5,0.5,milp,"q[1,NL0 0 0 solar]",50.0
+5,0.5,milp,"q[2,NL0 0 0 solar]",0.0
+5,0.5,milp,"q[3,NL0 0 0 solar]",25.0
+5,0.5,milp,"q[1,NL0 1 0 solar]",25.0
+5,0.5,milp,"q[2,NL0 1 0 solar]",50.0
+5,0.5,milp,"q[3,NL0 1 0 solar]",0.0
+5,0.5,milp,"q[1,NL0 10 0 solar]",0.0
+5,0.5,milp,"q[2,NL0 10 0 solar]",25.0
+5,0.5,milp,"q[3,NL0 10 0 solar]",50.0
+5,0.5,milp,c[NL0 0 CCGT],15.714285714285714
+5,0.5,milp,c[NL0 1 coal],152.5
+5,0.5,milp,c[NL0 10 nuclear],130.0
+5,0.5,milp,c_cm_I[NL0 0 CCGT],15.714285714285714
+5,0.5,milp,c_cm_I[NL0 1 coal],152.5
+5,0.5,milp,c_cm_I[NL0 10 nuclear],130.0
+5,0.5,milp,c_cm_J[NL0 0 0 solar],0.0
+5,0.5,milp,c_cm_J[NL0 1 0 solar],0.0
+5,0.5,milp,c_cm_J[NL0 10 0 solar],0.0
+5,0.5,milp,c_dem[1],15.714285714285714
+5,0.5,milp,c_dem[2],152.5
+5,0.5,milp,c_dem[3],130.0
+5,0.5,milp,"f_trans[(1, 2)]",-2.5
+5,0.5,milp,"f_trans[(1, 3)]",-2.5
+5,0.5,milp,"f_trans[(2, 3)]",-5.0
+5,0.5,milp,lambda_e[1],4.0
+5,0.5,milp,lambda_e[2],5.0
+5,0.5,milp,lambda_e[3],5.0
+5,0.5,milp,lambda_c[1],22.5
+5,0.5,milp,lambda_c[2],30.0
+5,0.5,milp,lambda_c[3],35.5
+5,0.5,milp,lambda_c_sys,0.0
+5,0.5,milp,"mu_g_up_I[1,NL0 0 CCGT]",0.0
+5,0.5,milp,"mu_g_up_I[2,NL0 0 CCGT]",0.0
+5,0.5,milp,"mu_g_up_I[3,NL0 0 CCGT]",0.0
+5,0.5,milp,"mu_g_up_I[1,NL0 1 coal]",0.0
+5,0.5,milp,"mu_g_up_I[2,NL0 1 coal]",0.0
+5,0.5,milp,"mu_g_up_I[3,NL0 1 coal]",0.0
+5,0.5,milp,"mu_g_up_I[1,NL0 10 nuclear]",0.0
+5,0.5,milp,"mu_g_up_I[2,NL0 10 nuclear]",1.0
+5,0.5,milp,"mu_g_up_I[3,NL0 10 nuclear]",1.0
+5,0.5,milp,"mu_g_up_J[1,NL0 0 0 solar]",3.9899999999997817
+5,0.5,milp,"mu_g_up_J[2,NL0 0 0 solar]",4.989999999998872
+5,0.5,milp,"mu_g_up_J[3,NL0 0 0 solar]",4.989999999999782
+5,0.5,milp,"mu_g_up_J[1,NL0 1 0 solar]",3.9899999999997817
+5,0.5,milp,"mu_g_up_J[2,NL0 1 0 solar]",4.989999999999782
+5,0.5,milp,"mu_g_up_J[3,NL0 1 0 solar]",4.989999999998872
+5,0.5,milp,"mu_g_up_J[1,NL0 10 0 solar]",3.9899999999988722
+5,0.5,milp,"mu_g_up_J[2,NL0 10 0 solar]",4.989999999999782
+5,0.5,milp,"mu_g_up_J[3,NL0 10 0 solar]",4.989999999999782
+5,0.5,milp,mu_cm_bud_I[NL0 0 CCGT],22.5
+5,0.5,milp,mu_cm_bud_I[NL0 1 coal],30.0
+5,0.5,milp,mu_cm_bud_I[NL0 10 nuclear],35.5
+5,0.5,milp,mu_cm_bud_J[NL0 0 0 solar],22.5
+5,0.5,milp,mu_cm_bud_J[NL0 1 0 solar],30.0
+5,0.5,milp,mu_cm_bud_J[NL0 10 0 solar],35.5
+5,0.5,milp,mu_cap_up[NL0 0 CCGT],0.0
+5,0.5,milp,mu_cap_up[NL0 1 coal],0.0
+5,0.5,milp,mu_cap_up[NL0 10 nuclear],0.0
+5,0.5,milp,nu_c[1],22.5
+5,0.5,milp,nu_c[2],30.0
+5,0.5,milp,nu_c[3],35.5
+5,0.5,milp,"phi_lo[(1, 2)]",7.5
+5,0.5,milp,"phi_lo[(1, 3)]",13.0
+5,0.5,milp,"phi_lo[(2, 3)]",5.5
+5,0.5,milp,"phi_hi[(1, 2)]",0.0
+5,0.5,milp,"phi_hi[(1, 3)]",0.0
+5,0.5,milp,"phi_hi[(2, 3)]",0.0
+5,0.5,milp,rho[1],0.0
+5,0.5,milp,rho[2],0.0
+5,0.5,milp,rho[3],0.0
+5,0.5,rd,"r_up[1,NL0 0 CCGT]",0.0
+5,0.5,rd,"r_up[2,NL0 0 CCGT]",0.0
+5,0.5,rd,"r_up[3,NL0 0 CCGT]",0.0
+5,0.5,rd,"r_up[1,NL0 1 coal]",0.0
+5,0.5,rd,"r_up[2,NL0 1 coal]",0.0
+5,0.5,rd,"r_up[3,NL0 1 coal]",0.0
+5,0.5,rd,"r_up[1,NL0 10 nuclear]",0.0
+5,0.5,rd,"r_up[2,NL0 10 nuclear]",0.0
+5,0.5,rd,"r_up[3,NL0 10 nuclear]",0.0
+5,0.5,rd,"r_up[1,NL0 0 0 solar]",0.0
+5,0.5,rd,"r_up[2,NL0 0 0 solar]",0.0
+5,0.5,rd,"r_up[3,NL0 0 0 solar]",0.0
+5,0.5,rd,"r_up[1,NL0 1 0 solar]",0.0
+5,0.5,rd,"r_up[2,NL0 1 0 solar]",0.0
+5,0.5,rd,"r_up[3,NL0 1 0 solar]",0.0
+5,0.5,rd,"r_up[1,NL0 10 0 solar]",0.0
+5,0.5,rd,"r_up[2,NL0 10 0 solar]",0.0
+5,0.5,rd,"r_up[3,NL0 10 0 solar]",0.0
+5,0.5,rd,"r_down[1,NL0 0 CCGT]",0.0
+5,0.5,rd,"r_down[2,NL0 0 CCGT]",0.0
+5,0.5,rd,"r_down[3,NL0 0 CCGT]",0.0
+5,0.5,rd,"r_down[1,NL0 1 coal]",0.0
+5,0.5,rd,"r_down[2,NL0 1 coal]",0.0
+5,0.5,rd,"r_down[3,NL0 1 coal]",0.0
+5,0.5,rd,"r_down[1,NL0 10 nuclear]",0.0
+5,0.5,rd,"r_down[2,NL0 10 nuclear]",0.0
+5,0.5,rd,"r_down[3,NL0 10 nuclear]",0.0
+5,0.5,rd,"r_down[1,NL0 0 0 solar]",0.0
+5,0.5,rd,"r_down[2,NL0 0 0 solar]",0.0
+5,0.5,rd,"r_down[3,NL0 0 0 solar]",0.0
+5,0.5,rd,"r_down[1,NL0 1 0 solar]",0.0
+5,0.5,rd,"r_down[2,NL0 1 0 solar]",0.0
+5,0.5,rd,"r_down[3,NL0 1 0 solar]",0.0
+5,0.5,rd,"r_down[1,NL0 10 0 solar]",0.0
+5,0.5,rd,"r_down[2,NL0 10 0 solar]",0.0
+5,0.5,rd,"r_down[3,NL0 10 0 solar]",0.0
+5,0.5,rd,"p_flow[1,1]",28.82381991306427
+5,0.5,rd,"p_flow[2,1]",-7.553828666872013
+5,0.5,rd,"p_flow[3,1]",4.87023164048328
+5,0.5,rd,"p_flow[1,2]",-31.89046580122144
+5,0.5,rd,"p_flow[2,2]",8.874742761699432
+5,0.5,rd,"p_flow[3,2]",-0.12976835951671983
+5,0.5,rd,"p_flow[1,3]",14.033322944078606
+5,0.5,rd,"p_flow[2,3]",-3.16045704741368
+5,0.5,rd,"p_flow[3,3]",7.629768359516748
+5,0.5,rd,"curt[1,1]",0.0
+5,0.5,rd,"curt[2,1]",0.0
+5,0.5,rd,"curt[3,1]",0.0
+5,0.5,rd,"curt[1,2]",0.0
+5,0.5,rd,"curt[2,2]",0.0
+5,0.5,rd,"curt[3,2]",0.0
+5,0.5,rd,"curt[1,3]",0.0
+5,0.5,rd,"curt[2,3]",0.0
+5,0.5,rd,"curt[3,3]",0.0
+6,0.5,milp,ls[1],0.0
+6,0.5,milp,ls[2],0.0
+6,0.5,milp,ls[3],0.0
+6,0.5,milp,"q[1,NL0 0 CCGT]",0.0
+6,0.5,milp,"q[2,NL0 0 CCGT]",0.0
+6,0.5,milp,"q[3,NL0 0 CCGT]",0.0
+6,0.5,milp,"q[1,NL0 1 coal]",0.0
+6,0.5,milp,"q[2,NL0 1 coal]",95.0
+6,0.5,milp,"q[3,NL0 1 coal]",145.0
+6,0.5,milp,"q[1,NL0 10 nuclear]",125.0
+6,0.5,milp,"q[2,NL0 10 nuclear]",130.0
+6,0.5,milp,"q[3,NL0 10 nuclear]",130.0
+6,0.5,milp,"q[1,NL0 0 0 solar]",50.0
+6,0.5,milp,"q[2,NL0 0 0 solar]",0.0
+6,0.5,milp,"q[3,NL0 0 0 solar]",25.0
+6,0.5,milp,"q[1,NL0 1 0 solar]",25.0
+6,0.5,milp,"q[2,NL0 1 0 solar]",50.0
+6,0.5,milp,"q[3,NL0 1 0 solar]",0.0
+6,0.5,milp,"q[1,NL0 10 0 solar]",0.0
+6,0.5,milp,"q[2,NL0 10 0 solar]",25.0
+6,0.5,milp,"q[3,NL0 10 0 solar]",50.0
+6,0.5,milp,c[NL0 0 CCGT],15.714285714285714
+6,0.5,milp,c[NL0 1 coal],152.5
+6,0.5,milp,c[NL0 10 nuclear],130.0
+6,0.5,milp,c_cm_I[NL0 0 CCGT],15.714285714285714
+6,0.5,milp,c_cm_I[NL0 1 coal],152.5
+6,0.5,milp,c_cm_I[NL0 10 nuclear],130.0
+6,0.5,milp,c_cm_J[NL0 0 0 solar],0.0
+6,0.5,milp,c_cm_J[NL0 1 0 solar],0.0
+6,0.5,milp,c_cm_J[NL0 10 0 solar],0.0
+6,0.5,milp,c_dem[1],15.714285714285714
+6,0.5,milp,c_dem[2],152.5
+6,0.5,milp,c_dem[3],130.0
+6,0.5,milp,"f_trans[(1, 2)]",-2.5
+6,0.5,milp,"f_trans[(1, 3)]",-2.5
+6,0.5,milp,"f_trans[(2, 3)]",-5.0
+6,0.5,milp,lambda_e[1],4.0
+6,0.5,milp,lambda_e[2],5.0
+6,0.5,milp,lambda_e[3],5.0
+6,0.5,milp,lambda_c[1],22.5
+6,0.5,milp,lambda_c[2],30.0
+6,0.5,milp,lambda_c[3],35.5
+6,0.5,milp,lambda_c_sys,0.0
+6,0.5,milp,"mu_g_up_I[1,NL0 0 CCGT]",0.0
+6,0.5,milp,"mu_g_up_I[2,NL0 0 CCGT]",0.0
+6,0.5,milp,"mu_g_up_I[3,NL0 0 CCGT]",0.0
+6,0.5,milp,"mu_g_up_I[1,NL0 1 coal]",0.0
+6,0.5,milp,"mu_g_up_I[2,NL0 1 coal]",0.0
+6,0.5,milp,"mu_g_up_I[3,NL0 1 coal]",0.0
+6,0.5,milp,"mu_g_up_I[1,NL0 10 nuclear]",0.0
+6,0.5,milp,"mu_g_up_I[2,NL0 10 nuclear]",1.0
+6,0.5,milp,"mu_g_up_I[3,NL0 10 nuclear]",1.0
+6,0.5,milp,"mu_g_up_J[1,NL0 0 0 solar]",3.9899999999997817
+6,0.5,milp,"mu_g_up_J[2,NL0 0 0 solar]",4.989999999998872
+6,0.5,milp,"mu_g_up_J[3,NL0 0 0 solar]",4.989999999999782
+6,0.5,milp,"mu_g_up_J[1,NL0 1 0 solar]",3.9899999999997817
+6,0.5,milp,"mu_g_up_J[2,NL0 1 0 solar]",4.989999999999782
+6,0.5,milp,"mu_g_up_J[3,NL0 1 0 solar]",4.989999999998872
+6,0.5,milp,"mu_g_up_J[1,NL0 10 0 solar]",3.9899999999988722
+6,0.5,milp,"mu_g_up_J[2,NL0 10 0 solar]",4.989999999999782
+6,0.5,milp,"mu_g_up_J[3,NL0 10 0 solar]",4.989999999999782
+6,0.5,milp,mu_cm_bud_I[NL0 0 CCGT],22.5
+6,0.5,milp,mu_cm_bud_I[NL0 1 coal],30.0
+6,0.5,milp,mu_cm_bud_I[NL0 10 nuclear],35.5
+6,0.5,milp,mu_cm_bud_J[NL0 0 0 solar],22.5
+6,0.5,milp,mu_cm_bud_J[NL0 1 0 solar],30.0
+6,0.5,milp,mu_cm_bud_J[NL0 10 0 solar],35.5
+6,0.5,milp,mu_cap_up[NL0 0 CCGT],0.0
+6,0.5,milp,mu_cap_up[NL0 1 coal],0.0
+6,0.5,milp,mu_cap_up[NL0 10 nuclear],0.0
+6,0.5,milp,nu_c[1],22.5
+6,0.5,milp,nu_c[2],30.0
+6,0.5,milp,nu_c[3],35.5
+6,0.5,milp,"phi_lo[(1, 2)]",7.5
+6,0.5,milp,"phi_lo[(1, 3)]",13.0
+6,0.5,milp,"phi_lo[(2, 3)]",5.5
+6,0.5,milp,"phi_hi[(1, 2)]",0.0
+6,0.5,milp,"phi_hi[(1, 3)]",0.0
+6,0.5,milp,"phi_hi[(2, 3)]",0.0
+6,0.5,milp,rho[1],0.0
+6,0.5,milp,rho[2],0.0
+6,0.5,milp,rho[3],0.0
+6,0.5,rd,"r_up[1,NL0 0 CCGT]",0.0
+6,0.5,rd,"r_up[2,NL0 0 CCGT]",0.0
+6,0.5,rd,"r_up[3,NL0 0 CCGT]",0.0
+6,0.5,rd,"r_up[1,NL0 1 coal]",0.0
+6,0.5,rd,"r_up[2,NL0 1 coal]",0.0
+6,0.5,rd,"r_up[3,NL0 1 coal]",0.0
+6,0.5,rd,"r_up[1,NL0 10 nuclear]",0.0
+6,0.5,rd,"r_up[2,NL0 10 nuclear]",0.0
+6,0.5,rd,"r_up[3,NL0 10 nuclear]",0.0
+6,0.5,rd,"r_up[1,NL0 0 0 solar]",0.0
+6,0.5,rd,"r_up[2,NL0 0 0 solar]",0.0
+6,0.5,rd,"r_up[3,NL0 0 0 solar]",0.0
+6,0.5,rd,"r_up[1,NL0 1 0 solar]",0.0
+6,0.5,rd,"r_up[2,NL0 1 0 solar]",0.0
+6,0.5,rd,"r_up[3,NL0 1 0 solar]",0.0
+6,0.5,rd,"r_up[1,NL0 10 0 solar]",0.0
+6,0.5,rd,"r_up[2,NL0 10 0 solar]",0.0
+6,0.5,rd,"r_up[3,NL0 10 0 solar]",0.0
+6,0.5,rd,"r_down[1,NL0 0 CCGT]",0.0
+6,0.5,rd,"r_down[2,NL0 0 CCGT]",0.0
+6,0.5,rd,"r_down[3,NL0 0 CCGT]",0.0
+6,0.5,rd,"r_down[1,NL0 1 coal]",0.0
+6,0.5,rd,"r_down[2,NL0 1 coal]",0.0
+6,0.5,rd,"r_down[3,NL0 1 coal]",0.0
+6,0.5,rd,"r_down[1,NL0 10 nuclear]",0.0
+6,0.5,rd,"r_down[2,NL0 10 nuclear]",0.0
+6,0.5,rd,"r_down[3,NL0 10 nuclear]",0.0
+6,0.5,rd,"r_down[1,NL0 0 0 solar]",0.0
+6,0.5,rd,"r_down[2,NL0 0 0 solar]",0.0
+6,0.5,rd,"r_down[3,NL0 0 0 solar]",0.0
+6,0.5,rd,"r_down[1,NL0 1 0 solar]",0.0
+6,0.5,rd,"r_down[2,NL0 1 0 solar]",0.0
+6,0.5,rd,"r_down[3,NL0 1 0 solar]",0.0
+6,0.5,rd,"r_down[1,NL0 10 0 solar]",0.0
+6,0.5,rd,"r_down[2,NL0 10 0 solar]",0.0
+6,0.5,rd,"r_down[3,NL0 10 0 solar]",0.0
+6,0.5,rd,"p_flow[1,1]",28.82381991306427
+6,0.5,rd,"p_flow[2,1]",-7.553828666872013
+6,0.5,rd,"p_flow[3,1]",4.87023164048328
+6,0.5,rd,"p_flow[1,2]",-31.89046580122144
+6,0.5,rd,"p_flow[2,2]",8.874742761699432
+6,0.5,rd,"p_flow[3,2]",-0.12976835951671983
+6,0.5,rd,"p_flow[1,3]",14.033322944078606
+6,0.5,rd,"p_flow[2,3]",-3.16045704741368
+6,0.5,rd,"p_flow[3,3]",7.629768359516748
+6,0.5,rd,"curt[1,1]",0.0
+6,0.5,rd,"curt[2,1]",0.0
+6,0.5,rd,"curt[3,1]",0.0
+6,0.5,rd,"curt[1,2]",0.0
+6,0.5,rd,"curt[2,2]",0.0
+6,0.5,rd,"curt[3,2]",0.0
+6,0.5,rd,"curt[1,3]",0.0
+6,0.5,rd,"curt[2,3]",0.0
+6,0.5,rd,"curt[3,3]",0.0

@@ -1,0 +1,33 @@
+method,run,check,value,note
+FullPD_max,1,voll_minus_markup,150.0,generators with vc < this make r_up strictly cheaper than curt in the markup-priced objective
+FullPD_max,1,max_comp_slack_q_I,4.063416270127964e-13,q*stat_q (investable); should be ~0
+FullPD_max,1,max_comp_slack_q_J,1.021405182655144e-12,q*stat_q (legacy); should be ~0
+FullPD_max,1,max_comp_slack_c,0.0,c*stat_c (investment); should be ~0
+FullPD_max,1,max_comp_slack_ccm_I,0.0,c_cm*stat_cm (investable); should be ~0
+FullPD_max,1,max_comp_slack_ccm_J,0.0,c_cm*stat_cm (legacy); should be ~0
+FullPD_max,1,max_comp_slack_cdem,0.0,c_dem*stat_dem (capacity); should be ~0
+FullPD_max,1,max_comp_slack_rup,1.4210854715202004e-14,r_up * stationarity_rup; should be ~0 if complementarity holds despite no explicit constraint
+FullPD_max,1,max_comp_slack_rdn,36872.5,r_down * stationarity_rdn; should be ~0
+FullPD_max,1,max_comp_slack_curt,118860.19444199657,curt * stationarity_curt; should be ~0
+FullPD_max,1,n_gens_below_threshold,6.0,NL0 0 CCGT;NL0 1 coal;NL0 10 nuclear;NL0 0 0 solar;NL0 1 0 solar;NL0 10 0 solar
+FullPD_max,1,share_rup_from_below_threshold_gens,NaN,1.0 = ALL r_up comes from gens cheaper than VOLL-h
+FullPD_max,1,markup_priced_redispatch_obj,379740.25,"(vc+h)*r_up + (-vc+h)*r_down + VOLL*curt, W_t-weighted; compare directly across runs"
+FullPD_max,1,redispatch_SD_residual,-5.820766091346741e-11,should be ~0; confirms the KKT point actually satisfies redispatch strong duality
+FullPD_max,1,max_rup_bound_violation,3.538502824085299e-12,should be <= ~0
+FullPD_max,1,max_rdn_bound_violation,4.092726157978177e-12,should be <= ~0
+FullPD_min,1,voll_minus_markup,150.0,generators with vc < this make r_up strictly cheaper than curt in the markup-priced objective
+FullPD_min,1,max_comp_slack_q_I,1.9040324872322514e-11,q*stat_q (investable); should be ~0
+FullPD_min,1,max_comp_slack_q_J,8.215650382226158e-12,q*stat_q (legacy); should be ~0
+FullPD_min,1,max_comp_slack_c,2.2630786133959196e-10,c*stat_c (investment); should be ~0
+FullPD_min,1,max_comp_slack_ccm_I,0.0,c_cm*stat_cm (investable); should be ~0
+FullPD_min,1,max_comp_slack_ccm_J,0.0,c_cm*stat_cm (legacy); should be ~0
+FullPD_min,1,max_comp_slack_cdem,2.0889956431346955e-11,c_dem*stat_dem (capacity); should be ~0
+FullPD_min,1,max_comp_slack_rup,2910.535820193844,r_up * stationarity_rup; should be ~0 if complementarity holds despite no explicit constraint
+FullPD_min,1,max_comp_slack_rdn,10021.099999999999,r_down * stationarity_rdn; should be ~0
+FullPD_min,1,max_comp_slack_curt,2225.0,curt * stationarity_curt; should be ~0
+FullPD_min,1,n_gens_below_threshold,6.0,NL0 0 CCGT;NL0 1 coal;NL0 10 nuclear;NL0 0 0 solar;NL0 1 0 solar;NL0 10 0 solar
+FullPD_min,1,share_rup_from_below_threshold_gens,1.0,1.0 = ALL r_up comes from gens cheaper than VOLL-h
+FullPD_min,1,markup_priced_redispatch_obj,21178.707160612932,"(vc+h)*r_up + (-vc+h)*r_down + VOLL*curt, W_t-weighted; compare directly across runs"
+FullPD_min,1,redispatch_SD_residual,8.585629984736443e-10,should be ~0; confirms the KKT point actually satisfies redispatch strong duality
+FullPD_min,1,max_rup_bound_violation,6.906475391588174e-12,should be <= ~0
+FullPD_min,1,max_rdn_bound_violation,0.0,should be <= ~0

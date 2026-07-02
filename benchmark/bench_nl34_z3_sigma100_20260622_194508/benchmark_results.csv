@@ -1,0 +1,8 @@
+method,status,solve_time,rd_cost,mip_gap,n_vars,n_bin,n_qconstr,n_qnz,n_obs
+FullPD_max,TIME_LIMIT,3600.1770000457764,NaN,1.0e100,175994,0,308,951902,1
+FullPD_min,TIME_LIMIT,3600.1369998455048,NaN,1.0e100,175994,0,308,951902,1
+SeqPD_stage1_sweep,0/1 solved,3600.167999982834,NaN,NaN,-1,-1,-1,56442,0
+SeqPD_rd_cost,0 obs — no solved weights,0.0,NaN,NaN,-1,-1,-1,-1,0
+MILP_stage1_sweep,1/1 solved,3601.207000017166,NaN,NaN,-1,44276,-1,-1,1
+MILP_rd_cost_min,—,0.4239997863769531,3.264599116168265e8,NaN,-1,-1,-1,-1,1
+MILP_rd_cost_max,—,0.4239997863769531,3.264599116168265e8,NaN,-1,-1,-1,-1,1

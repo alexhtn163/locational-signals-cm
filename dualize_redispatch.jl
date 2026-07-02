@@ -5,7 +5,7 @@ L    = [1, 2, 3]                                  # line 1: 1-2, line 2: 2-3, li
 PTDF = Dict((1,1)=>0.0, (1,2)=> 0.667, (1,3)=>0.333,     # line 1-2
             (2,1)=>0.0, (2,2)=>-0.333, (2,3)=>0.333,     # line 2-3
             (3,1)=>0.0, (3,2)=> 0.333, (3,3)=>0.667)     # line 1-3
-Fmax = Dict(1 => 50.0, 2 => 50.0, 3 => 30.0)     # line 1-3 is the binding one
+Fmax = Dict(1 => 50.0, 2 => 50.0, 3 => 30.0)    
 
 G       = ["g1", "g2", "g3"]
 gen_bus = Dict("g1"=>1, "g2"=>2, "g3"=>3)
@@ -22,7 +22,7 @@ gen_at(n) = sum(q[g] for g in G if gen_bus[g] == n; init = 0.0)
 f_mkt = Dict(l => sum(PTDF[(l,n)] * (gen_at(n) - d[n]) for n in N) for l in L)
 
 # =============================================================================
-# 1. PRIMAL  (matches your current redispatch model)
+# 1. PRIMAL  
 # =============================================================================
 function build_primal_rd(; with_optimizer = true)
     m = with_optimizer ? Model(Gurobi.Optimizer) : Model()
@@ -47,7 +47,7 @@ function build_primal_rd(; with_optimizer = true)
 end
 
 # =============================================================================
-# 2. MANUAL DUAL  (clean KKT: beta, rho >= 0 ; lambda_rd, phi free)
+# 2. MANUAL DUAL  
 # =============================================================================
 function build_manual_dual_rd()
     dm = Model(Gurobi.Optimizer); set_silent(dm)
@@ -78,7 +78,7 @@ function build_manual_dual_rd()
 end
 
 # =============================================================================
-# Run the three-way check
+# Three-way check
 # =============================================================================
 prim, pc = build_primal_rd(); optimize!(prim); p = objective_value(prim)
 

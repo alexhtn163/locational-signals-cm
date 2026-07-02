@@ -10,7 +10,6 @@ lambda_c_fix = Dict(1 => 50_000.0, 2 => 30_000.0, 3 => 60_000.0)
 # System requirement. Sum of zonal floors (= sum d_c_z, since sum net_import = 0) is 3000.
 # Set d_c BELOW 3000 -> system constraint slack -> lambda_c_sys = 0 (matches your real model).
 # Set d_c ABOVE 3000 -> system constraint binds  -> lambda_c_sys > 0 (to actually TEST the term).
-# Test the binding case so the lambda_c_sys terms are exercised:
 d_c = 2200.0
 
 # =============================================================================
@@ -44,8 +43,8 @@ function build_manual_dual_capacity()
     @variable(d, phi_hi[pair_keys] >= 0)
     @variable(d, lambda_c_sys      >= 0)
     # dual feasibility
-    @constraint(d, df_cdem[z in Z], lambda_c_fix[z] - nu_c[z] - lambda_c_sys >= 0)  # wrt c_dem >= 0
-    @constraint(d, df_f[p in pair_keys],                                            # wrt f_trans (free)
+    @constraint(d, df_cdem[z in Z], lambda_c_fix[z] - nu_c[z] - lambda_c_sys >= 0)  
+    @constraint(d, df_f[p in pair_keys],                                            
         -(nu_c[p[1]] - rho[p[1]]) + (nu_c[p[2]] - rho[p[2]]) + phi_hi[p] - phi_lo[p] == 0)
     # dual objective = sum of (parameter RHS * dual)
     @objective(d, Max,

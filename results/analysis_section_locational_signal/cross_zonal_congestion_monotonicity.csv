@@ -1,0 +1,13 @@
+case_study,metric,lower_bound_non_decreasing,lower_bound_non_increasing,upper_bound_non_decreasing,upper_bound_non_increasing
+Case Study 1,downward_redispatch_mwh,True,False,True,False
+Case Study 1,grid_related_load_shedding_cost,True,False,True,False
+Case Study 1,grid_related_load_shedding_mwh,True,False,True,False
+Case Study 1,redispatch_cost_excluding_load_shedding,False,True,False,False
+Case Study 1,redispatch_volume_mwh,True,False,True,False
+Case Study 1,upward_redispatch_mwh,True,False,True,False
+Case Study 2,downward_redispatch_mwh,False,False,False,False
+Case Study 2,grid_related_load_shedding_cost,False,False,True,False
+Case Study 2,grid_related_load_shedding_mwh,False,False,True,False
+Case Study 2,redispatch_cost_excluding_load_shedding,False,False,False,False
+Case Study 2,redispatch_volume_mwh,False,False,False,False
+Case Study 2,upward_redispatch_mwh,False,False,False,False

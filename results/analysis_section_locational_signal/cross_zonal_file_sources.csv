@@ -1,0 +1,11 @@
+label,scenario,case_study,sigma,base_file,rerun_files,runs_loaded
+Case Study 1 - sigma 0.00,nl34_z3_sigma0,Case Study 1,0.0,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma0\summary_runs_nl34_z3_sigma0.csv,,80
+Case Study 1 - sigma 0.25,nl34_z3_sigma25,Case Study 1,0.25,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma25\summary_runs_nl34_z3_sigma25.csv,,80
+Case Study 1 - sigma 0.50,nl34_z3_sigma50,Case Study 1,0.5,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma50\summary_runs_nl34_z3_sigma50.csv,,80
+Case Study 1 - sigma 0.75,nl34_z3_sigma75,Case Study 1,0.75,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma75\summary_runs_nl34_z3_sigma75.csv,,80
+Case Study 1 - sigma 1.00,nl34_z3_sigma100,Case Study 1,1.0,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma100\summary_runs_nl34_z3_sigma100.csv,,80
+Case Study 2 - sigma 0.00,cs2_nl34_z3_sigma0,Case Study 2,0.0,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma0\summary_runs_cs2_nl34_z3_sigma0.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z3_sigma0\rerun_summary_runs_cs2_nl34_z3_sigma0.csv,80
+Case Study 2 - sigma 0.25,cs2_nl34_z3_sigma25,Case Study 2,0.25,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma25\summary_runs_cs2_nl34_z3_sigma25.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z3_sigma25\rerun_summary_runs_cs2_nl34_z3_sigma25.csv,80
+Case Study 2 - sigma 0.50,cs2_nl34_z3_sigma50,Case Study 2,0.5,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma50\summary_runs_cs2_nl34_z3_sigma50.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z3_sigma50\rerun_summary_runs_cs2_nl34_z3_sigma50.csv,80
+Case Study 2 - sigma 0.75,cs2_nl34_z3_sigma75,Case Study 2,0.75,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma75\summary_runs_cs2_nl34_z3_sigma75.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z3_sigma75\rerun_summary_runs_cs2_nl34_z3_sigma75.csv,80
+Case Study 2 - sigma 1.00,cs2_nl34_z3_sigma100,Case Study 2,1.0,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma100\summary_runs_cs2_nl34_z3_sigma100.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z3_sigma100\rerun_summary_runs_cs2_nl34_z3_sigma100.csv,80

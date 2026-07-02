@@ -1,0 +1,9 @@
+scenario,case_study,design,market_zone,price_source_indicator,runs,price_median,new_capacity_median_mw
+cs2_nl34_z1_sigma0,Case Study 2,Country-wide,1,"Legacy only with positive price, inspect manually",80,5472.5808730146255,0.0
+cs2_nl34_z3_sigma0,Case Study 2,Split,1,"Legacy capacity sufficient, zero price",80,0.0,0.0
+cs2_nl34_z3_sigma0,Case Study 2,Split,2,"Legacy capacity sufficient, zero price",80,0.0,0.0
+cs2_nl34_z3_sigma0,Case Study 2,Split,3,New investment present,80,34087.402989712566,2400.1047541590287
+nl34_z1_sigma0,Case Study 1,Country-wide,1,"Legacy only with positive price, inspect manually",80,53935.51759343587,0.0
+nl34_z3_sigma0,Case Study 1,Split,1,New investment present,80,59329.06935281876,6601.546702524866
+nl34_z3_sigma0,Case Study 1,Split,2,New investment present,80,48541.9658340839,2421.309318529239
+nl34_z3_sigma0,Case Study 1,Split,3,New investment present,80,53935.51759344085,5678.104754159029

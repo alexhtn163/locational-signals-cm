@@ -1,0 +1,5 @@
+scenario,base_file,rerun_files,zone_map_file
+nl34_z1_sigma0,C:\Users\Alex\MasterThesis\results\final_nl34_z1_sigma0\cm_detail_nl34_z1_sigma0.csv,,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma0\investment_nl34_z3_sigma0.csv
+nl34_z3_sigma0,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma0\cm_detail_nl34_z3_sigma0.csv,,C:\Users\Alex\MasterThesis\results\final_nl34_z3_sigma0\investment_nl34_z3_sigma0.csv
+cs2_nl34_z1_sigma0,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z1_sigma0\cm_detail_cs2_nl34_z1_sigma0.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z1_sigma0\cm_detail_cs2_nl34_z1_sigma0.csv,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma0\investment_cs2_nl34_z3_sigma0.csv
+cs2_nl34_z3_sigma0,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma0\cm_detail_cs2_nl34_z3_sigma0.csv,C:\Users\Alex\MasterThesis\results\reruns_cs2_nl34_z3_sigma0\cm_detail_cs2_nl34_z3_sigma0.csv,C:\Users\Alex\MasterThesis\results\final_cs2_nl34_z3_sigma0\investment_cs2_nl34_z3_sigma0.csv

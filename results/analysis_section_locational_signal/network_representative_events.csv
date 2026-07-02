@@ -1,0 +1,7 @@
+scenario,case_study,design,sigma,run_id,t,selection_basis,grid_load_shedding_mw,total_market_overload_index,maximum_line_overload_mw,overloaded_lines
+nl34_z1_sigma0,Case Study 1,Country-wide,,1,177,largest grid-related load shedding,5013.511090616126,14094.056732293135,4116.578449252565,10
+nl34_z3_sigma0,Case Study 1,Split,0.0,78,177,largest grid-related load shedding,697.5157185317217,601.0785182609583,567.0667199428618,2
+nl34_z3_sigma100,Case Study 1,Split,1.0,39,177,largest grid-related load shedding,3219.833135575918,7515.316016237156,2701.1207681594324,7
+cs2_nl34_z1_sigma0,Case Study 2,Country-wide,,78,177,largest grid-related load shedding,875.237061369522,935.652991670955,336.4337032508553,5
+cs2_nl34_z3_sigma0,Case Study 2,Split,0.0,8,44,largest pre-redispatch overload,0.0,463.95969124519434,306.821001129832,2
+cs2_nl34_z3_sigma100,Case Study 2,Split,1.0,75,177,largest grid-related load shedding,875.2370613695239,1111.4914520247526,389.99801520872,6

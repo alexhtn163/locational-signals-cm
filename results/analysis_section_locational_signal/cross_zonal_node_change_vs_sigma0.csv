@@ -1,0 +1,321 @@
+scenario,case_study,sigma,zone,bus,change_min_mw,change_max_mw,change_class
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 0,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 10,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 16,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 17,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 18,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 20,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 21,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 23,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 24,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 27,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 3,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 30,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 33,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,1,NL0 8,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 12,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 14,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 15,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 19,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 2,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 25,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 26,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 28,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 31,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,2,NL0 4,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 1,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 11,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 13,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 22,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 5,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 6,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 7,0.0,0.0,No material change
+cs2_nl34_z3_sigma0,Case Study 2,0.0,3,NL0 9,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 0,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 10,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 16,-3.205949069610407e-06,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 17,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 18,0.0,3.2669882363833865e-06,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 20,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 21,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 23,0.0,1.9967185895808366e-06,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 24,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 27,0.0,0.0,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 3,0.0,9.502496567392886e-10,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 30,-9.63844543733217e-07,5.711656037021843e-09,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 33,-1.4080098459479444e-08,2.749004579527538e-09,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,1,NL0 8,0.0,3.6527603093361466e-06,No material change
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 12,0.0,502.4607752131778,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 14,0.0,502.4607752132147,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 15,0.0,502.4607794545074,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 19,0.0,502.4607752130796,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 2,0.0,502.4607752130614,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 25,0.0,502.460775213412,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 26,0.0,502.4607752130632,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 28,0.0,502.4607752130887,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 31,0.0,502.4607752131187,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,2,NL0 4,0.0,502.4607752139365,Gains in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 1,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 11,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 13,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 22,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 5,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 6,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 7,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma100,Case Study 2,1.0,3,NL0 9,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 0,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 10,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 16,-3.205949069610407e-06,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 17,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 18,-9.638893150309973e-07,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 20,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 21,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 23,-9.638755553709193e-07,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 24,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 27,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 3,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 30,-9.63844543733217e-07,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 33,-2.812355288890763e-07,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,1,NL0 8,-5.780344753958391e-07,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 12,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 14,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 15,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 19,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 2,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 25,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 26,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 28,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 31,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,2,NL0 4,0.0,0.0,No material change
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 1,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 11,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 13,-788.5670740593446,156.88732027409606,Direction differs across paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 22,-788.5670740593455,519.851308439503,Direction differs across paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 5,-788.5670740593455,321.9595460373166,Direction differs across paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 6,-788.5670740593459,124.15040983224048,Direction differs across paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 7,-788.5670740593464,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma25,Case Study 2,0.25,3,NL0 9,-788.5670740593455,149.45981644962808,Direction differs across paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 0,0.0,0.0,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 10,0.0,7.554870884399325e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 16,-3.205949069610407e-06,6.377501511332336e-08,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 17,0.0,0.0,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 18,-9.596714196646876e-07,0.0,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 20,0.0,2.276597221850808e-08,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 21,0.0,3.791994274138234e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 23,-9.638755553709193e-07,2.0323227545304694e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 24,0.0,7.453319739170185e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 27,0.0,7.541984814452007e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 3,0.0,4.2147956236249245e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 30,-9.617139387074762e-07,3.791994274138234e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 33,-5.532983076023888e-08,2.130605025740807e-09,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,1,NL0 8,-5.780344753958391e-07,1.5405818842850757e-07,No material change
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 12,0.0,479.6996774908275,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 14,0.0,479.6996774908503,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 15,0.0,479.6996774910031,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 19,0.0,479.699677490944,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 2,0.0,479.6996774908994,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 25,0.0,479.6996774910086,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 26,0.0,479.6996774906741,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 28,0.0,479.6996774908434,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 31,0.0,479.6996774908657,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,2,NL0 4,0.0,479.69967749107786,Gains in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 1,-1000.0,22.761097722262093,Direction differs across paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 11,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 13,-1000.0,22.76109772228384,Direction differs across paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 22,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 5,-977.2389022777162,1.732995613679123e-08,Loses in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 6,-1000.0,1.733063825781756e-08,Loses in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 7,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma50,Case Study 2,0.5,3,NL0 9,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 0,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 10,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 16,-3.205949069610407e-06,9.09443144792022e-07,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 17,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 18,-5.444617023897525e-08,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 20,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 21,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 23,-5.4432410578897255e-08,4.95322716176361e-09,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 24,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 27,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 3,0.0,9.094429174183464e-07,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 30,-5.4401398941195006e-08,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 33,0.0,1.1100775859787096e-06,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,1,NL0 8,0.0,3.314085557093451e-07,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 12,0.0,502.4607752133602,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 14,0.0,502.46077521325833,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 15,-1.1579439245903921e-07,502.4607752723706,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 19,0.0,502.46077521334126,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 2,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 25,0.0,502.460775213116,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 26,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 28,0.0,502.46077521302686,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 31,0.0,0.0,No material change
+cs2_nl34_z3_sigma75,Case Study 2,0.75,2,NL0 4,0.0,502.46077532928473,Gains in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 1,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 11,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 13,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 22,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 5,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 6,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 7,-1000.0,0.0,Loses in some paired runs
+cs2_nl34_z3_sigma75,Case Study 2,0.75,3,NL0 9,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 0,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 10,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 16,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 17,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 18,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 20,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 21,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 23,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 24,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 27,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 3,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 30,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 33,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,1,NL0 8,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 12,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 14,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 15,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 19,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 2,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 25,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 26,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 28,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 31,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,2,NL0 4,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 1,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 11,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 13,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 22,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 5,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 6,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 7,0.0,0.0,No material change
+nl34_z3_sigma0,Case Study 1,0.0,3,NL0 9,0.0,0.0,No material change
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 0,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 10,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 16,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 17,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 18,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 20,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 21,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 23,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 24,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 27,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 3,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 30,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 33,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,1,NL0 8,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 12,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 14,-241.97230259321725,1000.0,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 15,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 19,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 2,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 25,-29.320434863716514,1000.0,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 26,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 28,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 31,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma100,Case Study 1,1.0,2,NL0 4,-129.41490682636123,1000.0,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 1,-286.7466343021388,607.1002991550449,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 11,-360.1712946739499,363.24033966163256,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 13,-408.27172768247806,833.6500628432273,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 22,-498.998694984328,488.58066278588717,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 5,-317.33700389681144,723.8942190659277,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 6,-211.3350872226074,550.9145987761906,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 7,-488.5806627859863,4.556769917141764,Direction differs across paired runs
+nl34_z3_sigma100,Case Study 1,1.0,3,NL0 9,-186.06124240176678,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 0,-601.5467025248663,42.34779681863574,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 10,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 16,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 17,-601.5467025248663,13.626080109406757,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 18,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 20,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 21,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 23,-601.5467025248663,12.460360676254027,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 24,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 27,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 3,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 30,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 33,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,1,NL0 8,-601.5467025248663,0.0,Loses in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 12,-45.54662282742726,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 14,-280.94633040315966,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 15,-259.2418572201957,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 19,-252.97924874998478,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 2,0.0,609.9811467476056,Gains in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 25,-273.08631742918874,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 26,-72.38192364722792,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 28,-19.92765222735966,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 31,0.0,609.9811467476056,Gains in some paired runs
+nl34_z3_sigma25,Case Study 1,0.25,2,NL0 4,-157.99506782968217,609.9811467476056,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 1,-1000.0,686.623756129437,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 11,-448.8467002481598,1000.0,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 13,-1000.0,1000.0,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 22,-554.5994215138542,573.575031566711,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 5,-486.00543189474456,519.551439535222,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 6,-793.5798664064088,1000.0,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 7,-573.5750315666992,46.05727256554769,Direction differs across paired runs
+nl34_z3_sigma25,Case Study 1,0.25,3,NL0 9,-321.89524584095943,0.5175184414385967,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 0,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 10,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 16,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 17,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 18,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 20,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 21,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 23,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 24,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 27,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 3,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 30,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 33,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,1,NL0 8,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 12,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 14,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 15,-139.40246574611922,1000.0,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 19,-139.56334312004162,1000.0,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 2,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 25,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 26,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 28,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 31,-11.854994030060652,1000.0,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,2,NL0 4,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 1,-744.3628623699817,606.0870130131443,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 11,-721.8998910604232,122.66345473321962,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 13,-311.9136816702003,413.00883558159694,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 22,-321.8952458409567,652.3304604857632,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 5,-655.6131561334735,1000.0,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 6,-285.0179939988493,1000.0,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 7,-573.5750315666992,321.89524584097126,Direction differs across paired runs
+nl34_z3_sigma50,Case Study 1,0.5,3,NL0 9,-321.8952458409567,92.66180489218459,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 0,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 10,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 16,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 17,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 18,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 20,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 21,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 23,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 24,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 27,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 3,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 30,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 33,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,1,NL0 8,-1000.0,0.0,Loses in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 12,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 14,-39.41728944148474,1000.0,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 15,-167.88597098104356,1000.0,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 19,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 2,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 25,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 26,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 28,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 31,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,2,NL0 4,0.0,1000.0,Gains in some paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 1,-997.801802343751,654.7829409186802,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 11,-584.4721213945455,1000.0,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 13,-394.8622808137068,303.2649286622533,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 22,-295.69924075935603,652.3304604857632,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 5,-474.0544415985569,1000.0,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 6,-215.39711531811372,1000.0,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 7,-573.5750315666992,108.99232158644168,Direction differs across paired runs
+nl34_z3_sigma75,Case Study 1,0.75,3,NL0 9,-247.8711267757161,92.66180489218459,Direction differs across paired runs

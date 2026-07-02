@@ -1,0 +1,42 @@
+
+Gurobi 13.0.0 (win64) logging started Mon Jun 29 16:14:03 2026
+
+Set parameter LogFile to value "benchmark/bench_poc_z3_sigma100_20260629_161303\logs\milp_s1_w4.log"
+Set parameter LogToConsole to value 1
+Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (win64 - Windows 11+.0 (26200.2))
+
+CPU model: 13th Gen Intel(R) Core(TM) i5-1340P, instruction set [SSE2|AVX|AVX2]
+Thread count: 12 physical cores, 16 logical processors, using up to 8 threads
+
+Non-default parameters:
+TimeLimit  3599.969
+FeasibilityTol  0.001
+MIPGap  0.01
+DualReductions  0
+Presolve  2
+Threads  8
+
+Optimize a model with 228 rows, 155 columns and 540 nonzeros (Max)
+Model fingerprint: 0x1181ac6a
+Model has 2 linear objective coefficients
+Variable types: 82 continuous, 73 integer (73 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+03]
+  Objective range  [3e-01, 6e-01]
+  Bounds range     [4e+01, 9e+02]
+  RHS range        [1e-02, 6e+02]
+Presolve removed 222 rows and 143 columns
+Presolve time: 0.00s
+Presolved: 6 rows, 12 columns, 12 nonzeros
+Variable types: 6 continuous, 6 integer (6 binary)
+Found heuristic solution: objective 120.3642963
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds (0.00 work units)
+Thread count was 8 (of 16 available processors)
+
+Solution count 1: 120.364 
+
+Optimal solution found (tolerance 1.00e-02)
+Best objective 1.203642962577e+02, best bound 1.203642962577e+02, gap 0.0000%
+
+User-callback calls 37, time in user-callback 0.00 sec

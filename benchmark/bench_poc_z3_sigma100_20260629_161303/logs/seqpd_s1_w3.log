@@ -1,0 +1,54 @@
+
+Gurobi 13.0.0 (win64) logging started Mon Jun 29 16:13:55 2026
+
+Set parameter LogFile to value "benchmark/bench_poc_z3_sigma100_20260629_161303\logs\seqpd_s1_w3.log"
+Set parameter LogToConsole to value 1
+Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (win64 - Windows 11+.0 (26200.2))
+
+CPU model: 13th Gen Intel(R) Core(TM) i5-1340P, instruction set [SSE2|AVX|AVX2]
+Thread count: 12 physical cores, 16 logical processors, using up to 8 threads
+
+Non-default parameters:
+TimeLimit  3598.628
+NonConvex  2
+Threads  8
+
+Optimize a model with 85 rows, 82 columns and 189 nonzeros (Max)
+Model fingerprint: 0x35a4e38c
+Model has 2 linear objective coefficients
+Model has 10 quadratic constraints
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e-02, 3e+02]
+  Objective range  [4e-01, 7e-01]
+  Bounds range     [5e+00, 9e+02]
+  RHS range        [1e-02, 4e+02]
+Presolve removed 42 rows and 18 columns
+
+Continuous model is non-convex -- solving as a MIP
+
+Presolve removed 42 rows and 18 columns
+Presolve time: 0.00s
+Presolved: 134 rows, 83 columns, 349 nonzeros
+Presolved model has 21 bilinear constraint(s)
+Variable types: 83 continuous, 0 integer (0 binary)
+Found heuristic solution: objective -157.1357037
+
+Root relaxation: cutoff, 70 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0     cutoff    0      -157.13570 -157.13570  0.00%     -    0s
+
+Explored 1 nodes (70 simplex iterations) in 0.01 seconds (0.00 work units)
+Thread count was 8 (of 16 available processors)
+
+Solution count 1: -157.136 
+No other solutions better than -157.136
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -1.571357037423e+02, best bound -1.571357037423e+02, gap 0.0000%
+
+User-callback calls 50, time in user-callback 0.00 sec

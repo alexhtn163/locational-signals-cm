@@ -1,0 +1,58 @@
+
+Gurobi 13.0.0 (win64) logging started Mon Jun 29 16:13:54 2026
+
+Set parameter LogFile to value "benchmark/bench_poc_z3_sigma100_20260629_161303\logs\seqpd_s1_w1.log"
+Set parameter LogToConsole to value 1
+Gurobi Optimizer version 13.0.0 build v13.0.0rc1 (win64 - Windows 11+.0 (26200.2))
+
+CPU model: 13th Gen Intel(R) Core(TM) i5-1340P, instruction set [SSE2|AVX|AVX2]
+Thread count: 12 physical cores, 16 logical processors, using up to 8 threads
+
+Non-default parameters:
+TimeLimit  3600
+NonConvex  2
+Threads  8
+
+Optimize a model with 85 rows, 82 columns and 189 nonzeros (Max)
+Model fingerprint: 0x819b3f85
+Model has 2 linear objective coefficients
+Model has 10 quadratic constraints
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  QMatrix range    [1e+00, 1e+00]
+  QLMatrix range   [1e-02, 3e+02]
+  Objective range  [3e-01, 6e-01]
+  Bounds range     [5e+00, 9e+02]
+  RHS range        [1e-02, 4e+02]
+Presolve removed 42 rows and 18 columns
+
+Continuous model is non-convex -- solving as a MIP
+
+Presolve removed 42 rows and 18 columns
+Presolve time: 0.00s
+Presolved: 134 rows, 83 columns, 349 nonzeros
+Presolved model has 21 bilinear constraint(s)
+Variable types: 83 continuous, 0 integer (0 binary)
+Found heuristic solution: objective -120.3642963
+
+Root relaxation: objective -1.147983e+02, 66 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 -114.79832    0   15 -120.36430 -114.79832  4.62%     -    0s
+     0     0     cutoff    0      -120.36430 -120.36430  0.00%     -    0s
+
+Cutting planes:
+  RLT: 22
+
+Explored 1 nodes (119 simplex iterations) in 0.03 seconds (0.00 work units)
+Thread count was 8 (of 16 available processors)
+
+Solution count 1: -120.364 
+No other solutions better than -120.364
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective -1.203642962577e+02, best bound -1.203642962577e+02, gap 0.0000%
+
+User-callback calls 59, time in user-callback 0.00 sec

@@ -1,0 +1,19 @@
+run_id,generator,type,bus,zone,cm_offer,lambda_c_z,mu_cm_bud
+3,NL0 0 CCGT,investable,NL0 0,1,10.714285714285714,22.5,22.5
+3,NL0 1 coal,investable,NL0 1,2,150.0,30.0,30.0
+3,NL0 10 nuclear,investable,NL0 10,3,137.5,35.5,35.5
+3,NL0 0 0 solar,legacy,NL0 0,1,0.0,22.5,22.5
+3,NL0 1 0 solar,legacy,NL0 1,2,0.0,30.0,30.0
+3,NL0 10 0 solar,legacy,NL0 10,3,0.0,35.5,35.5
+5,NL0 0 CCGT,investable,NL0 0,1,10.714285714285714,22.5,22.5
+5,NL0 1 coal,investable,NL0 1,2,150.0,30.0,30.0
+5,NL0 10 nuclear,investable,NL0 10,3,137.5,35.5,35.5
+5,NL0 0 0 solar,legacy,NL0 0,1,0.0,22.5,22.5
+5,NL0 1 0 solar,legacy,NL0 1,2,0.0,30.0,30.0
+5,NL0 10 0 solar,legacy,NL0 10,3,0.0,35.5,35.5
+6,NL0 0 CCGT,investable,NL0 0,1,10.714285714285714,22.5,22.5
+6,NL0 1 coal,investable,NL0 1,2,150.0,30.0,30.0
+6,NL0 10 nuclear,investable,NL0 10,3,137.5,35.5,35.5
+6,NL0 0 0 solar,legacy,NL0 0,1,0.0,22.5,22.5
+6,NL0 1 0 solar,legacy,NL0 1,2,0.0,30.0,30.0
+6,NL0 10 0 solar,legacy,NL0 10,3,0.0,35.5,35.5

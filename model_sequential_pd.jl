@@ -20,7 +20,7 @@ function build_seq_stage1_sweep(P; weights = default_weights(P), total_time_limi
     t_start = now()
     n_done = 0
     for (k, w) in enumerate(weights)
-        elapsed = (now() - t_start).value / 1000.0           # seconds, wall clock
+        elapsed = (now() - t_start).value / 1000.0         
         remaining = total_time_limit - elapsed
         if remaining <= 0.0
             @info "stage1 sweep: time budget exhausted after $(n_done)/$(length(weights)) weights"
@@ -35,7 +35,7 @@ function build_seq_stage1_sweep(P; weights = default_weights(P), total_time_limi
         add_log!(m, "$(tag)_w$(k)", log_dir)
         V = add_market_cap_feas!(m, P)
         add_strong_duality!(m, P, V)
-        @objective(m, Max, sum(w[i]*V.c[i] for i in I))       # same exploration objective as your MILP
+        @objective(m, Max, sum(w[i]*V.c[i] for i in I))     
         optimize!(m)
         n_done += 1
  
